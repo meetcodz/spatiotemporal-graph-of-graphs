@@ -1,0 +1,32 @@
+# Fast Synthetic Dataset Configuration for Smoke Testing
+dataset: "Synthetic"
+use_synthetic: true
+batch_size: 16
+num_workers: 0
+
+# Synthetic Data Dimensions
+synthetic_train_samples: 80
+synthetic_test_samples: 32
+synthetic_seq_len: 40
+synthetic_channels: 6
+synthetic_classes: 3
+
+# Model Architecture
+tcn_hidden: 64
+gcn_hidden: 64
+gog_hidden: 64
+num_segments: 4
+dropout: 0.2
+use_se: true
+gcn_radii: [1, 3]
+
+# Quick Training
+epochs: 5
+lr: 0.001
+weight_decay: 0.0001
+mixup_alpha: 0.2
+tta_passes: 3
+print_every: 1
+
+output_dir: "outputs/synthetic"
+checkpoint_dir: "checkpoints/synthetic"

@@ -1,0 +1,280 @@
+*** PAGE 43 ***
+43 ---
+diverse benchmarks.
+As illustrated in Figure 5.4, the proposed ST-GoG model achieved the lowest average rank
+of 1.73 across all 22 datasets. The Wilcoxon signed-rank test at α = 0.05 shows ST-GoG and
+SAGoG are not statistically distinguishable from each other, while both are significantly better
+than Simple Parallel.
+1234
+Average Rank Difference Diagram
+ST-GoG
+1.73
+SAGoG
+2.43
+ROCKET
+2.86
+Simple Parallel
+2.98
+Figure 5.4: Average rank diagram across 22 UEA datasets.
+Figure 5.4 presents the critical-difference diagram produced by Wilcoxon signed-rank testing at
+α = 0.05. ST-GoG achieves the best average rank of 1.73, and the thick horizontal bar spanning
+ST-GoG and SAGoG indicates that the two methods are not statistically distinguishable from
+each other, whereas both are significantly better than Simple Parallel. ROCKET occupies an
+intermediate position.
+5.7 Category-Wise Ranking Analysis
+To understandwhenandwhyeach method succeeds, the 22 UEA datasets are grouped into four
+domain categories. This decomposition reveals structural patterns in model behaviour that are
+invisible in aggregate rankings.
+5.7.1 Category Definitions and Dataset Mapping
+Table 5.7: Domain category assignment of the 22 UEA benchmark datasets.
+Category Datasets Count
+Motion & Activity Recognition AWR, HW, LI, NA, PD, RS, SWJ, UGL 8
+Medical & Neurological AF, EP, FD, FM, HB, HMD, MI, SCP1, SCP2 9
+Sensor & High-Dimensional DDG, PE, PS 3
+Astronomy & Biology EW, LS 2
+5.7.2 Category-Wise Ranking Summary
+Table 5.8 reports the ordinal rank of each method within every domain category, determined by
+descending mean classification accuracy over the datasets in that group. Rank 1 denotes the
+best-performing method in the category; rank 4 denotes the worst. The final row identifies the
+top-ranked model per category.
+31
+
+
+
+*** PAGE 44 ***
+44 ---
+Table 5.8: Category-wise models ranking summary
+Method
+Motion &
+Activity
+(n=8)
+Medical &
+Neurological
+(n=9)
+Sensor &
+High-Dim.
+(n=3)
+Astronomy &
+Biology
+(n=2)
+Overall
+(n=22)
+ST-GoG (ours)1st 1st2nd 3rd1st
+SAGoG 2nd 2nd1st2nd 2nd
+ROCKET 3rd 3rd 4th1st4th
+Simple Parallel 4th 4th 3rd 4th 3rd
+Top modelST-GoG ST-GoG SAGoG ROCKET ST-GoG
+5.7.3 Motion and Activity Recognition
+ST-GoG ranks first among motion datasets, winning on AWR, HW, LI, and NA. The multi-scale
+GCN captures structured inter-joint correlations inherent in motion capture data, while the
+adaptive GoG models temporal gesture phases across the short-to-medium sequence lengths
+typical of this group.
+5.7.4 Medical and Neurological
+ST-GoG and SAGoG are statistically indistinguishable in this category. ST-GoG wins on AF, FM,
+HB, SCP1, and SCP2. The strongest advantage is on AtrialFibrillation (15 training instances),
+where MixUp augmentation, label smoothing, and seven-pass TTA collectively compensate for
+extreme data scarcity. SAGoG retains advantages on HMD and MI where the full DTW instance
+graph encodes class-discriminative inter-instance context.
+5.7.5 Sensor and High-Dimensional
+SAGoG ranks first, winning on DDG and PS. On DuckDuckGeese ( C = 1345, N = 50),
+SAGoG’s pairwise instance graph substantially outperforms chain-adjacency GoG; data-driven
+inter-channel correlations are critical when only 50 instances are available.
+5.7.6 Astronomy and Biology
+ROCKET ranks first, driven by EigenWorms ( T = 17 ,984). The GoG module creates 10
+segments of approximately 1800 time steps each on this dataset, causing computational strain
+and under-convergence within the 250-epoch budget.
+32
+
+
+
+*** PAGE 45 ***
+45 ---
+5.8 Ablation Study
+Table 5.9: Ablation study on PEMS-SF.
+Variant Best Acc. (%)∆vs. Full Parameters
+Full ST-GoG 87.28 1,908,041
+w/o Training Aug. Pipeline 87.86 +0.58 1,883,075
+w/o SE attention 86.71−0.57↓1,899,689
+w/o Multi-Scale GCN 86.71−0.57↓1,561,408
+w/o GoG module 84.39−2.89↓1,494,583
+Removing the GoG module causes the largest drop ( −2.89 pp), confirming hierarchical segment-
+level relational reasoning as the most critical differentiator of ST-GoG on this dataset. Removing
+SE attention or the multi-scale GCN each cause a −0.57 pp drop. Disabling the training
+augmentation pipeline yields a marginal increase on PEMS-SF, consistent with its relatively
+large training split (N = 267); TAP is expected to provide greater benefit on smaller, imbalanced
+datasets.
+5.8.1 Learned Weight Analysis
+Table 5.10: Learned fusion weights of the full ST-GoG on PEMS-SF.
+Fusion Mechanism Component Learned Weight
+Multi-Scale GCN
+Local (r= 1) 0.308
+Medium (r= 3) 0.340
+Global (r= 5) 0.352
+Four-Pathway
+TCN global pool 0.285
+TCN + GoG 0.246
+GCN global pool 0.221
+GCN + GoG 0.249
+5.9 Discussion of Results
+5.9.1 Datasets Where ST-GoG Excels
+AtrialFibrillation:With only 15 training instances, ST-GoG achieves 53.33% against SAGoG’s
+43%. MixUp, seven-pass TTA, and GoG’s inter-segment similarity collectively compensate
+for extreme data scarcity.Libras:ST-GoG achieves 95.56% vs. ROCKET’s 90.61% on this
+two-channel, 45-step motion capture dataset; the short sequence falls in the S = 4 segment
+regime and the strong inter-channel coupling makes multi-scale GCN highly effective.NATOPS:
+ST-GoG achieves 99.44% vs. SAGoG’s 97.2% on this 24-channel, 51-step aviation gesture dataset,
+where the hierarchical GoG effectively captures temporal motion phases.
+33
+
+
+
+*** PAGE 46 ***
+46 ---
+5.9.2 Datasets Where Competitors Are Stronger
+FaceDetection:ROCKET (69.42%) and SAGoG (68.3%) outperform ST-GoG (53.04%). With
+5890 training instances and 144 channels, per-instance multi-scale GCN and GoG computation
+creates a training bottleneck within 250 epochs.EigenWorms:ROCKET (86.28%) dominates
+on thisT= 17,984 sequence where the GoG module creates very large inner GCN graphs.
+5.9.3 Win/Tie/Loss Summary
+Table 5.11: Win/tie/loss count for ST-GoG vs. each baseline across 22 datasets.
+Comparison Wins Ties Losses
+ST-GoG vs. Baseline TCN-GCN-GoG 20 2 0
+ST-GoG vs. SAGoG 14 0 8
+ST-GoG vs. ROCKET 16 0 6
+5.10 Limitations and Future Improvements
+The current implementation carries five limitations. First, the 10-segment GoG on EigenWorms
+(T = 17,984) creates inner GCN graphs of roughly 1800 nodes each, making per-epoch computa-
+tion prohibitive; strided pre-downsampling before the GoG module would mitigate this. Second,
+on FaceDetection (N = 5890), per-instance graph construction is a bottleneck that batch-level
+graph sharing could resolve. Third, chain adjacency encodes topological proximity rather than
+data-driven correlations; supplementing with a lightweight cosine-similarity component would
+improve performance on datasets where cross-channel relationships are class-discriminative but
+not topologically ordered. Fourth, replacing GoG mean pooling with an attention-weighted
+readout would allow selective emphasis on the most discriminative temporal segments. Fifth,
+future evaluations should include F1-scores, per-class confusion matrices, and GFLOPs profiling
+alongside top-1 accuracy.
+34
+
+
+
+*** PAGE 47 ***
+47 ---
+6
+Conclusions and Future Scope
+Accuracy on benchmark test sets is not the only measure of a research contribution. A model
+that achieves strong performance but requires impractical computation, or whose behaviour
+depends heavily on dataset-specific hyperparameter search, is a less useful contribution than
+one that generalises reliably at reasonable cost. The ST-GoG framework was evaluated on both
+dimensions.
+Across 22 UEA datasets, the improved ST-GoG architecture recorded the highest mean
+test accuracy (0.743) and achieved the most individual-dataset wins relative to any single
+comparison method, while keeping computational cost well below that of SAGoG’s full pairwise
+instance graph. The advantage was most pronounced on datasets with limited training data
+such as AtrialFibrillation (15 training instances) and on datasets with structured inter-channel
+dependencies, including Libras, NATOPS, FingerMovements, and ArticularyWordRecognition,
+where the combination of multi-scale graph reasoning and data augmentation proved most
+valuable.
+35
+
+
+
+*** PAGE 48 ***
+48 ---
+6.1 Summary of Contributions
+This thesis presented theSpatiotemporal Graph-of-Graphs (ST-GoG) Framework
+through four cumulative contributions. Thebaseline TCN–GCN–GoG modelestablished
+a clean, modular pipeline using chain adjacency, confirming that temporal, spatial, and re-
+lational encoders can be integrated in a single end-to-end trainable system. Theimproved
+ST-GoG architecturebuilt on that foundation by adding a five-layer residual TCN with SE
+attention, a multi-scale GCN operating at three radii ( r∈ { 1, 3, 5}) with learnable fusion, an
+adaptive segment-based hierarchical GoG, and a four-pathway learnable softmax fusion head a
+combination that yields the best average accuracy and ten individual dataset wins across the
+22-dataset benchmark. Theadvanced training packageMixUp ( α = 0.2), stochastic depth
+with exponential decay, cosine annealing with warm restarts, label smoothing, and seven-pass
+TTA delivered the largest gains on small and imbalanced datasets where the risk of overfitting is
+greatest. Finally, thecomprehensive empirical studyproduced per-dataset accuracy tables,
+win/tie/loss tallies, average rank scores, and a Wilcoxon-validated critical-difference diagram,
+providing a thorough and statistically grounded comparison against SAGoG, ROCKET, and the
+baseline.
+6.2 Key Findings
+Several consistent empirical patterns emerged from the 22-dataset evaluation. The multi-scale
+GCN operating at three radii with learnable fusion outperformed the single-radius baseline
+on datasets with multi-scale temporal dependencies, confirming that spatial modelling at a
+single fixed scale leaves discriminative inter-channel signals unexploited. SE attention provided
+consistent but modest gains, most pronounced on datasets where a small subset of temporal
+feature maps carries disproportionate class-discriminative information. Inspection of learned
+pathway weights revealed that GoG-augmented streams collectively captured the majority
+of fusion weight on most datasets, validating the design decision of hierarchical segment-level
+reasoning over simple global pooling. Despite these advantages, ROCKET remained the strongest
+competitor on datasets with strong periodic structure or very long sequences, where its random-
+kernel diversity efficiently extracts discriminative statistics without the computational overhead
+of graph construction.
+6.3 Future Research Directions
+6.3.1 Data-Driven Dynamic Adjacency
+Extending from chain adjacency to a hybrid approach:
+Ahybrid = (1−β)A chain
+r +βA cosine,
+36
+
+
+
+*** PAGE 49 ***
+49 ---
+where β is a learnable scalar, would allow the model to blend structural topology with data-driven
+correlations. A fully attention-based adjacency
+A= Softmax
+(XW q)(XW k)⊤
+√
+d
+
+could capture non-topological relationships and be optimized directly by the classification signal.
+6.3.2 Attention-Based GoG Pooling
+Replacing mean pooling:
+αk = Softmax(v⊤ tanh(Wh k +b)),z GoG =
+X
+k
+αkhk.
+6.3.3 Scalable Instance Graph Approximation
+For large-N datasets, anchor-based approximations [27] with m≪N representative anchors
+reduce memory fromO(N 2) toO(N m).
+6.3.4 Temporal Adaptive Sampling
+For very long sequences, a learned stride could adaptively downsample before GoG:
+Zsampled =Z[:,:,::s], s=f stride
+θ (Z).
+6.3.5 Interpretability
+Adding Grad-CAM [28] visualization for GCN layers and visualizing learned adjacency weights
+and pathway fusion weights across datasets would improve interpretability for deployment in
+safety-critical applications.
+6.3.6 Pre-Training and Transfer Learning
+Large-scale pre-training via masked segment prediction predicting the embedding of a masked
+temporal segment from surrounding segments could significantly improve performance on ex-
+tremely small datasets (AF: 15 training instances, SWJ: 12 instances).
+6.3.7 Real-Time and Edge Deployment
+Optimizing ST-GoG for edge devices through knowledge distillation, INT8 quantization, and
+pruning of the multi-scale GCN to a sparser single-scale GCN at inference time would enable
+deployment in latency-constrained environments such as real-time arrhythmia monitoring.
+37
+
+
+
+*** PAGE 50 ***
+50 ---
+A
+Additional Experimental Details
+A.1 Dataset Descriptions by Domain
+The UEA Multivariate Time Series Archive [10] contains datasets from diverse domains. The
+Motion and Activity Recognitiongroup (AWR, HW, LI, NA, RS, SWJ, UGL) comprises
+multi-sensor inertial and position recordings in which discriminative patterns reside in the phase
+and relative dynamics between channels. TheMedical and Neurologicalgroup (AF, EP,
+HB, SCP1, SCP2, HMD, FM, FD, MI) covers electrocardiographic and electroencephalographic
+recordings characterised by small training cohorts and clinically meaningful inter-class distinctions.
+TheSensor Networks and Trafficgroup is represented principally by PEMS-SF, which
+aggregates readings from 267 road-traffic-flow sensors over 144 time steps and exhibits strong
+daily periodicity. TheAstronomy and Othergroup includes LSST, whose six-channel
+photometric light curves capture stellar variability, as well as DuckDuckGeese, which encodes
+bird wing-motion dynamics, and EigenWorms, which represents nematode body-shape evolution
+via six eigenworm coefficients sampled at 17,984 time steps.
+38
+
+
+

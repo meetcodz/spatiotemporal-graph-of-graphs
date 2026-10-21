@@ -1,0 +1,1148 @@
+
+============================================================
+FILE: notebook19a6f5ec01.ipynb.txt (Size: 118134 bytes)
+============================================================
+Total cells: 9
+Cell 00 [code]: import numpy as np, torch, torch.nn as nn, torch.nn.functional as F
+     -> from torch.utils.data import DataLoader
+     -> from sktime.datasets import load_UCR_UEA_dataset
+     -> from sklearn.preprocessing import LabelEncoder, StandardScaler
+     -> from torch.cuda.amp import GradScaler, autocast
+Cell 01 [code]: # =========================================================
+     -> # FINAL UNIVERSAL MTS MODEL (SHAPE-SAFE)
+     -> import numpy as np
+     -> import torch
+Cell 02 [code]: !pip install -q sktime torch torchvision torchaudio tqdm
+     -> import numpy as np
+     -> import torch
+     -> import torch.nn as nn
+     -> import torch.nn.functional as F
+     -> from torch.utils.data import DataLoader
+Cell 03 [code]: !pip install -q sktime torch torchvision torchaudio tqdm
+     -> import numpy as np, torch, torch.nn as nn, torch.nn.functional as F
+     -> from torch.utils.data import DataLoader
+     -> from sktime.datasets import load_UCR_UEA_dataset
+     -> from sklearn.preprocessing import LabelEncoder, StandardScaler
+     -> from torch.cuda.amp import GradScaler, autocast
+Cell 04 [markdown]: TESTING SPEED
+Cell 05 [code]: # =========================================================
+     -> # ENHANCED MULTIVARIATE TIME SERIES MODEL
+     -> import numpy as np
+     -> import time
+Cell 06 [code]: # =========================================================
+     -> # ENHANCED & STABILIZED MULTIVARIATE TIME SERIES MODEL
+     -> import numpy as np
+     -> import time
+Cell 07 [code]: # ===========================================================================
+     -> # Multi-GPU Time-Series Classifier — Kaggle 2× T4
+     -> # Includes: Snapshot Ensembling + Full Model Evaluation
+     -> import os, time
+Cell 08 [code]: # ===========================================================================
+     -> # Multi-GPU Time-Series Classifier — Kaggle 2× T4 (Batch Run)
+     -> # Includes: Snapshot Ensembling + Full Model Evaluation across 22 datasets
+     -> import os, time, gc, traceback
+
+============================================================
+FILE: notebookb57bcbeca7.ipynb.txt (Size: 43444 bytes)
+============================================================
+Total cells: 1
+Cell 00 [code]: # =========================================================
+     -> # ABLATION STUDY — ST-GoG Multivariate Time Series Model
+     -> # Variants:
+     -> #   V1  — Full ST-GoG               (baseline)
+     [OUTPUT]: Loading dataset: PEMS-SF …
+     [OUTPUT]:   warnings.warn(
+     [OUTPUT]:   Parameters: 1,908,041
+     [OUTPUT]:   with autocast(enabled=(device.type == 'cuda')):
+     [OUTPUT]:   Parameters: 1,883,075
+     [OUTPUT]:   with autocast(enabled=(device.type == 'cuda')):
+     [OUTPUT]:   Parameters: 1,899,689
+     [OUTPUT]:   with autocast(enabled=(device.type == 'cuda')):
+     [OUTPUT]:   Parameters: 1,561,408
+     [OUTPUT]:   with autocast(enabled=(device.type == 'cuda')):
+     [OUTPUT]:   Parameters: 1,494,583
+     [OUTPUT]:   with autocast(enabled=(device.type == 'cuda')):
+     [OUTPUT]:   Ep 030 | Loss 0.8737 | Acc 79.19% | Best 84.39% | 0.858s
+
+============================================================
+FILE: stgog.ipynb (1).txt (Size: 156063 bytes)
+============================================================
+Total cells: 9
+Cell 00 [code]: import numpy as np, torch, torch.nn as nn, torch.nn.functional as F
+     -> from torch.utils.data import DataLoader
+     -> from sktime.datasets import load_UCR_UEA_dataset
+     -> from sklearn.preprocessing import LabelEncoder, StandardScaler
+     -> from torch.cuda.amp import GradScaler, autocast
+Cell 01 [code]: # =========================================================
+     -> # FINAL UNIVERSAL MTS MODEL (SHAPE-SAFE)
+     -> import numpy as np
+     -> import torch
+Cell 02 [code]: !pip install -q sktime torch torchvision torchaudio tqdm
+     -> import numpy as np
+     -> import torch
+     -> import torch.nn as nn
+     -> import torch.nn.functional as F
+     -> from torch.utils.data import DataLoader
+Cell 03 [code]: !pip install -q sktime torch torchvision torchaudio tqdm
+     -> import numpy as np, torch, torch.nn as nn, torch.nn.functional as F
+     -> from torch.utils.data import DataLoader
+     -> from sktime.datasets import load_UCR_UEA_dataset
+     -> from sklearn.preprocessing import LabelEncoder, StandardScaler
+     -> from torch.cuda.amp import GradScaler, autocast
+Cell 04 [markdown]: TESTING SPEED
+Cell 05 [code]: # =========================================================
+     -> # ENHANCED MULTIVARIATE TIME SERIES MODEL
+     -> import numpy as np
+     -> import time
+Cell 06 [code]: # =========================================================
+     -> # ENHANCED & STABILIZED MULTIVARIATE TIME SERIES MODEL
+     -> import numpy as np
+     -> import time
+Cell 07 [code]: # ===========================================================================
+     -> # Multi-GPU Time-Series Classifier — Kaggle 2× T4
+     -> # Includes: Snapshot Ensembling + Full Model Evaluation
+     -> import os, time
+Cell 08 [code]: # ===========================================================================
+     -> # Multi-GPU Time-Series Classifier — Kaggle 2× T4 (Batch Run)
+     -> # Includes: Snapshot Ensembling + Full Model Evaluation across 22 datasets
+     -> import os, time, gc, traceback
+
+============================================================
+FILE: stgog.ipynb.txt (Size: 118163 bytes)
+============================================================
+Total cells: 9
+Cell 00 [code]: import numpy as np, torch, torch.nn as nn, torch.nn.functional as F
+     -> from torch.utils.data import DataLoader
+     -> from sktime.datasets import load_UCR_UEA_dataset
+     -> from sklearn.preprocessing import LabelEncoder, StandardScaler
+     -> from torch.cuda.amp import GradScaler, autocast
+Cell 01 [code]: # =========================================================
+     -> # FINAL UNIVERSAL MTS MODEL (SHAPE-SAFE)
+     -> import numpy as np
+     -> import torch
+Cell 02 [code]: !pip install -q sktime torch torchvision torchaudio tqdm
+     -> import numpy as np
+     -> import torch
+     -> import torch.nn as nn
+     -> import torch.nn.functional as F
+     -> from torch.utils.data import DataLoader
+Cell 03 [code]: !pip install -q sktime torch torchvision torchaudio tqdm
+     -> import numpy as np, torch, torch.nn as nn, torch.nn.functional as F
+     -> from torch.utils.data import DataLoader
+     -> from sktime.datasets import load_UCR_UEA_dataset
+     -> from sklearn.preprocessing import LabelEncoder, StandardScaler
+     -> from torch.cuda.amp import GradScaler, autocast
+Cell 04 [markdown]: TESTING SPEED
+Cell 05 [code]: # =========================================================
+     -> # ENHANCED MULTIVARIATE TIME SERIES MODEL
+     -> import numpy as np
+     -> import time
+Cell 06 [code]: # =========================================================
+     -> # ENHANCED & STABILIZED MULTIVARIATE TIME SERIES MODEL
+     -> import numpy as np
+     -> import time
+Cell 07 [code]: # ===========================================================================
+     -> # Multi-GPU Time-Series Classifier — Kaggle 2× T4
+     -> # Includes: Snapshot Ensembling + Full Model Evaluation
+     -> import os, time
+Cell 08 [code]: # ===========================================================================
+     -> # Multi-GPU Time-Series Classifier — Kaggle 2× T4 (Batch Run)
+     -> # Includes: Snapshot Ensembling + Full Model Evaluation across 22 datasets
+     -> import os, time, gc, traceback
+
+============================================================
+FILE: Untitled3.ipynb.txt (Size: 348204 bytes)
+============================================================
+Total cells: 16
+Cell 00 [code]: !nvidia-smi
+     [OUTPUT]: Successfully installed scikit-base-0.12.6 sktime-0.39.0 torch-cluster-1.6.3 torch-geometric-2.7.0 to
+Cell 01 [code]: import torch, torch.nn as nn, torch.nn.functional as F
+     -> from torch_geometric.data import Data, DataLoader
+     -> from torch_geometric.nn import GCNConv, global_mean_pool
+     -> from sktime.datasets import load_from_tsfile_to_dataframe
+     -> import numpy as np
+     [OUTPUT]: Shapes: (7494, 8, 2) (3498, 8, 2)
+Cell 02 [code]: def build_chain_graph(x):
+     -> class PenDigitsGraphDataset(torch.utils.data.Dataset):
+     -> def __init__(self, X, y):
+     -> def __len__(self): return len(self.X)
+     -> def __getitem__(self, i):
+     [OUTPUT]:   test_loader = DataLoader(test_ds, batch_size=64)
+Cell 03 [code]: class TemporalBlock(nn.Module):
+     -> def __init__(self, in_ch, out_ch, k=3, d=1):
+     -> def forward(self, x):
+     -> class TCN_GCN_GoG(nn.Module):
+     -> def __init__(self, in_ch, tcn_hidden=32, gcn_hidden=64, num_classes=10):
+Cell 04 [code]: model = TCN_GCN_GoG(in_ch=X_train.shape[2], num_classes=len(classes)).to(device)
+     -> def train_epoch():
+     -> def evaluate(loader):
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 59.66it/s]
+     [OUTPUT]: Epoch 001 | Loss: 1.7933 | Test Acc: 47.86%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 112.39it/s]
+     [OUTPUT]: Epoch 002 | Loss: 1.3734 | Test Acc: 57.20%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 84.48it/s]
+     [OUTPUT]: Epoch 003 | Loss: 1.1369 | Test Acc: 61.49%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 101.32it/s]
+     [OUTPUT]: Epoch 004 | Loss: 0.9703 | Test Acc: 62.81%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 112.22it/s]
+     [OUTPUT]: Epoch 005 | Loss: 0.8559 | Test Acc: 66.81%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 112.01it/s]
+     [OUTPUT]: Epoch 006 | Loss: 0.7908 | Test Acc: 68.30%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 100.52it/s]
+     [OUTPUT]: Epoch 007 | Loss: 0.7395 | Test Acc: 65.95%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 112.22it/s]
+     [OUTPUT]: Epoch 008 | Loss: 0.7131 | Test Acc: 67.10%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 110.60it/s]
+     [OUTPUT]: Epoch 009 | Loss: 0.6811 | Test Acc: 64.95%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 93.39it/s]
+     [OUTPUT]: Epoch 010 | Loss: 0.6279 | Test Acc: 76.39%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 77.37it/s]
+     [OUTPUT]: Epoch 011 | Loss: 0.6069 | Test Acc: 74.64%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 101.10it/s]
+     [OUTPUT]: Epoch 012 | Loss: 0.5704 | Test Acc: 71.44%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 109.59it/s]
+     [OUTPUT]: Epoch 013 | Loss: 0.5853 | Test Acc: 77.24%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 111.68it/s]
+     [OUTPUT]: Epoch 014 | Loss: 0.5545 | Test Acc: 79.10%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 107.19it/s]
+     [OUTPUT]: Epoch 015 | Loss: 0.5160 | Test Acc: 77.56%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 110.31it/s]
+     [OUTPUT]: Epoch 016 | Loss: 0.5224 | Test Acc: 75.99%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 113.00it/s]
+     [OUTPUT]: Epoch 017 | Loss: 0.5045 | Test Acc: 77.33%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 98.03it/s]
+     [OUTPUT]: Epoch 018 | Loss: 0.4828 | Test Acc: 78.56%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 85.51it/s]
+     [OUTPUT]: Epoch 019 | Loss: 0.4970 | Test Acc: 71.61%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 110.25it/s]
+     [OUTPUT]: Epoch 020 | Loss: 0.4861 | Test Acc: 80.85%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 111.46it/s]
+     [OUTPUT]: Epoch 021 | Loss: 0.4457 | Test Acc: 78.64%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 113.11it/s]
+     [OUTPUT]: Epoch 022 | Loss: 0.4583 | Test Acc: 79.27%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 113.50it/s]
+     [OUTPUT]: Epoch 023 | Loss: 0.4391 | Test Acc: 77.99%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 111.43it/s]
+     [OUTPUT]: Epoch 024 | Loss: 0.4265 | Test Acc: 78.79%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 112.88it/s]
+     [OUTPUT]: Epoch 025 | Loss: 0.4214 | Test Acc: 81.30%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 92.14it/s]
+     [OUTPUT]: Epoch 026 | Loss: 0.4082 | Test Acc: 80.87%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 90.18it/s]
+     [OUTPUT]: Epoch 027 | Loss: 0.4197 | Test Acc: 81.76%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 109.26it/s]
+     [OUTPUT]: Epoch 028 | Loss: 0.3958 | Test Acc: 81.25%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 112.54it/s]
+     [OUTPUT]: Epoch 029 | Loss: 0.4050 | Test Acc: 82.88%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 113.35it/s]
+     [OUTPUT]: Epoch 030 | Loss: 0.3748 | Test Acc: 80.56%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 112.34it/s]
+     [OUTPUT]: Epoch 031 | Loss: 0.3808 | Test Acc: 78.33%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 112.55it/s]
+     [OUTPUT]: Epoch 032 | Loss: 0.3533 | Test Acc: 82.05%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 111.68it/s]
+     [OUTPUT]: Epoch 033 | Loss: 0.3735 | Test Acc: 84.05%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 86.82it/s]
+     [OUTPUT]: Epoch 034 | Loss: 0.3435 | Test Acc: 83.70%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 95.42it/s]
+     [OUTPUT]: Epoch 035 | Loss: 0.3336 | Test Acc: 85.48%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 110.84it/s]
+     [OUTPUT]: Epoch 036 | Loss: 0.3220 | Test Acc: 84.73%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 111.93it/s]
+     [OUTPUT]: Epoch 037 | Loss: 0.3327 | Test Acc: 81.48%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 110.53it/s]
+     [OUTPUT]: Epoch 038 | Loss: 0.3146 | Test Acc: 84.19%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 107.31it/s]
+     [OUTPUT]: Epoch 039 | Loss: 0.2972 | Test Acc: 85.42%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 111.30it/s]
+     [OUTPUT]: Epoch 040 | Loss: 0.2783 | Test Acc: 84.99%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 108.68it/s]
+     [OUTPUT]: Epoch 041 | Loss: 0.2737 | Test Acc: 84.02%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 81.08it/s]
+     [OUTPUT]: Epoch 042 | Loss: 0.2909 | Test Acc: 84.48%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 108.50it/s]
+     [OUTPUT]: Epoch 043 | Loss: 0.2702 | Test Acc: 86.08%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 111.37it/s]
+     [OUTPUT]: Epoch 044 | Loss: 0.2375 | Test Acc: 86.36%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 113.51it/s]
+     [OUTPUT]: Epoch 045 | Loss: 0.2410 | Test Acc: 84.93%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 112.05it/s]
+     [OUTPUT]: Epoch 046 | Loss: 0.2638 | Test Acc: 86.88%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 111.75it/s]
+     [OUTPUT]: Epoch 047 | Loss: 0.2404 | Test Acc: 89.37%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 112.05it/s]
+     [OUTPUT]: Epoch 048 | Loss: 0.2193 | Test Acc: 85.93%
+     [OUTPUT]: 100%|██████████| 118/118 [00:01<00:00, 110.81it/s]
+     [OUTPUT]: Epoch 049 | Loss: 0.2423 | Test Acc: 88.54%
+Cell 05 [code]: import torch.nn.functional as F
+     [OUTPUT]: tensor([0., 1.])
+Cell 06 [code]: # =============================================================
+     -> # PenDigits GoG Model (TCN → GCN → GoG → Classifier)
+     -> import torch
+     -> import torch.nn as nn
+     [OUTPUT]: X_train shape: (7494, 2, 8), X_test shape: (3498, 2, 8)
+Cell 07 [code]: # -*- coding: utf-8 -*-
+     -> import torch
+     -> import torch.nn as nn
+     -> import torch.nn.functional as F
+     -> from torch.utils.data import DataLoader, TensorDataset
+     [OUTPUT]: Loaded shapes: (7494, 8, 2) (3498, 8, 2)
+     [OUTPUT]: Train:   0%|          | 0/59 [00:00<?, ?it/s]
+Cell 08 [code]: # -*- coding: utf-8 -*-
+     -> import torch
+     -> import torch.nn as nn
+     -> import torch.nn.functional as F
+     -> from torch.utils.data import DataLoader, TensorDataset
+     [OUTPUT]: ✅ Loaded shapes -> X_train: (7494, 8, 2), X_test: (3498, 8, 2)
+     [OUTPUT]: Epoch 01 | Loss: 1.9682 | Test Acc: 66.18%
+     [OUTPUT]: Epoch 02 | Loss: 0.9916 | Test Acc: 75.93%
+     [OUTPUT]: Epoch 03 | Loss: 0.6266 | Test Acc: 81.56%
+     [OUTPUT]: Epoch 04 | Loss: 0.4573 | Test Acc: 85.31%
+     [OUTPUT]: Epoch 05 | Loss: 0.3651 | Test Acc: 87.74%
+     [OUTPUT]: Epoch 06 | Loss: 0.3059 | Test Acc: 88.54%
+     [OUTPUT]: Epoch 07 | Loss: 0.2719 | Test Acc: 90.59%
+     [OUTPUT]: Epoch 08 | Loss: 0.2307 | Test Acc: 90.97%
+     [OUTPUT]: Epoch 09 | Loss: 0.2102 | Test Acc: 90.79%
+     [OUTPUT]: Epoch 10 | Loss: 0.1953 | Test Acc: 91.97%
+     [OUTPUT]: Epoch 11 | Loss: 0.1727 | Test Acc: 92.20%
+     [OUTPUT]: Epoch 12 | Loss: 0.1577 | Test Acc: 92.88%
+     [OUTPUT]: Epoch 13 | Loss: 0.1470 | Test Acc: 92.02%
+     [OUTPUT]: Epoch 14 | Loss: 0.1365 | Test Acc: 93.97%
+     [OUTPUT]: Epoch 15 | Loss: 0.1182 | Test Acc: 92.88%
+     [OUTPUT]: Epoch 16 | Loss: 0.1214 | Test Acc: 94.91%
+     [OUTPUT]: Epoch 17 | Loss: 0.1091 | Test Acc: 94.57%
+     [OUTPUT]: Epoch 18 | Loss: 0.0986 | Test Acc: 95.65%
+     [OUTPUT]: Epoch 19 | Loss: 0.0953 | Test Acc: 96.26%
+     [OUTPUT]: Epoch 20 | Loss: 0.0845 | Test Acc: 95.23%
+     [OUTPUT]: Epoch 21 | Loss: 0.0890 | Test Acc: 96.71%
+     [OUTPUT]: Epoch 22 | Loss: 0.0807 | Test Acc: 96.43%
+     [OUTPUT]: Epoch 23 | Loss: 0.0759 | Test Acc: 96.08%
+     [OUTPUT]: Epoch 24 | Loss: 0.0723 | Test Acc: 96.43%
+     [OUTPUT]: Epoch 25 | Loss: 0.0654 | Test Acc: 97.37%
+     [OUTPUT]: Epoch 26 | Loss: 0.0658 | Test Acc: 96.00%
+     [OUTPUT]: Epoch 27 | Loss: 0.0711 | Test Acc: 95.37%
+     [OUTPUT]: Epoch 28 | Loss: 0.0694 | Test Acc: 96.28%
+     [OUTPUT]: Epoch 29 | Loss: 0.0654 | Test Acc: 97.03%
+     [OUTPUT]: Epoch 30 | Loss: 0.0584 | Test Acc: 97.03%
+Cell 09 [code]: # Track training and test accuracy
+     [OUTPUT]: Epoch 01 | Loss=0.0563 | Train=99.08% | Test=97.54%
+     [OUTPUT]: Epoch 02 | Loss=0.0570 | Train=98.68% | Test=96.88%
+     [OUTPUT]: Epoch 03 | Loss=0.0501 | Train=98.85% | Test=97.37%
+     [OUTPUT]: Epoch 04 | Loss=0.0506 | Train=99.25% | Test=97.37%
+     [OUTPUT]: Epoch 05 | Loss=0.0466 | Train=99.23% | Test=97.91%
+     [OUTPUT]: Epoch 06 | Loss=0.0543 | Train=99.23% | Test=97.40%
+     [OUTPUT]: Epoch 07 | Loss=0.0488 | Train=99.21% | Test=97.60%
+     [OUTPUT]: Epoch 08 | Loss=0.0445 | Train=99.19% | Test=97.46%
+     [OUTPUT]: Epoch 09 | Loss=0.0422 | Train=99.23% | Test=97.11%
+     [OUTPUT]: Epoch 10 | Loss=0.0457 | Train=98.73% | Test=97.14%
+     [OUTPUT]: Epoch 11 | Loss=0.0435 | Train=99.33% | Test=97.43%
+     [OUTPUT]: Epoch 12 | Loss=0.0375 | Train=99.03% | Test=97.11%
+     [OUTPUT]: Epoch 13 | Loss=0.0414 | Train=99.37% | Test=97.88%
+     [OUTPUT]: Epoch 14 | Loss=0.0442 | Train=99.00% | Test=97.46%
+     [OUTPUT]: Epoch 15 | Loss=0.0381 | Train=99.07% | Test=97.40%
+     [OUTPUT]: Epoch 16 | Loss=0.0368 | Train=99.12% | Test=97.11%
+     [OUTPUT]: Epoch 17 | Loss=0.0348 | Train=99.43% | Test=97.54%
+     [OUTPUT]: Epoch 18 | Loss=0.0353 | Train=99.37% | Test=97.60%
+     [OUTPUT]: Epoch 19 | Loss=0.0359 | Train=99.28% | Test=97.71%
+     [OUTPUT]: Epoch 20 | Loss=0.0372 | Train=99.39% | Test=97.68%
+     [OUTPUT]: Epoch 21 | Loss=0.0361 | Train=98.53% | Test=95.23%
+     [OUTPUT]: Epoch 22 | Loss=0.0321 | Train=99.39% | Test=97.11%
+     [OUTPUT]: Epoch 23 | Loss=0.0385 | Train=98.97% | Test=96.68%
+     [OUTPUT]: Epoch 24 | Loss=0.0310 | Train=99.37% | Test=97.86%
+     [OUTPUT]: Epoch 25 | Loss=0.0331 | Train=99.45% | Test=97.80%
+     [OUTPUT]: Epoch 26 | Loss=0.0322 | Train=98.97% | Test=97.51%
+     [OUTPUT]: Epoch 27 | Loss=0.0356 | Train=98.76% | Test=96.77%
+     [OUTPUT]: Epoch 28 | Loss=0.0327 | Train=99.33% | Test=97.48%
+     [OUTPUT]: Epoch 29 | Loss=0.0275 | Train=99.29% | Test=97.20%
+     [OUTPUT]: Epoch 30 | Loss=0.0270 | Train=99.43% | Test=97.20%
+Cell 10 [code]: import matplotlib.pyplot as plt
+     [OUTPUT]: <Figure size 640x480 with 1 Axes>
+Cell 11 [code]: # ================================================================
+     -> # Universal Multivariate Time Series Classifier
+     -> #  TCN → GCN → GoG → Classifier
+     -> #  Works on all UEA Multivariate datasets
+     [OUTPUT]:    Classes: 7
+     [OUTPUT]: Epoch 01 | Loss=1.8627 | TestAcc=14.45%
+     [OUTPUT]: Epoch 02 | Loss=1.4426 | TestAcc=24.28%
+     [OUTPUT]: Epoch 03 | Loss=1.3322 | TestAcc=31.21%
+     [OUTPUT]: Epoch 04 | Loss=1.1979 | TestAcc=31.21%
+     [OUTPUT]: Epoch 05 | Loss=1.0222 | TestAcc=51.45%
+     [OUTPUT]: Epoch 06 | Loss=0.9670 | TestAcc=42.77%
+     [OUTPUT]: Epoch 07 | Loss=1.0203 | TestAcc=46.24%
+     [OUTPUT]: Epoch 08 | Loss=0.7380 | TestAcc=34.10%
+     [OUTPUT]: Epoch 09 | Loss=0.7606 | TestAcc=60.69%
+     [OUTPUT]: Epoch 10 | Loss=0.6220 | TestAcc=76.88%
+     [OUTPUT]: Epoch 11 | Loss=0.5666 | TestAcc=56.07%
+     [OUTPUT]: Epoch 12 | Loss=0.5910 | TestAcc=71.10%
+     [OUTPUT]: Epoch 13 | Loss=0.4733 | TestAcc=35.84%
+     [OUTPUT]: Epoch 14 | Loss=0.5181 | TestAcc=67.63%
+     [OUTPUT]: Epoch 15 | Loss=0.4050 | TestAcc=64.74%
+     [OUTPUT]: Epoch 16 | Loss=0.3111 | TestAcc=50.29%
+     [OUTPUT]: Epoch 17 | Loss=0.7513 | TestAcc=61.85%
+     [OUTPUT]: Epoch 18 | Loss=0.5683 | TestAcc=47.40%
+     [OUTPUT]: Epoch 19 | Loss=0.4168 | TestAcc=28.32%
+     [OUTPUT]: Epoch 20 | Loss=0.4037 | TestAcc=76.88%
+     [OUTPUT]: Epoch 21 | Loss=0.4922 | TestAcc=53.76%
+     [OUTPUT]: Epoch 22 | Loss=0.2403 | TestAcc=69.94%
+     [OUTPUT]: Epoch 23 | Loss=0.2469 | TestAcc=80.92%
+     [OUTPUT]: Epoch 24 | Loss=0.2824 | TestAcc=79.77%
+     [OUTPUT]: Epoch 25 | Loss=0.3050 | TestAcc=77.46%
+     [OUTPUT]: Epoch 26 | Loss=0.2408 | TestAcc=86.13%
+     [OUTPUT]: Epoch 27 | Loss=0.2988 | TestAcc=73.41%
+     [OUTPUT]: Epoch 28 | Loss=0.1602 | TestAcc=83.82%
+     [OUTPUT]: Epoch 29 | Loss=0.2622 | TestAcc=66.47%
+     [OUTPUT]: Epoch 30 | Loss=0.3964 | TestAcc=52.60%
+     [OUTPUT]: Epoch 31 | Loss=0.2027 | TestAcc=70.52%
+     [OUTPUT]: Epoch 32 | Loss=0.1788 | TestAcc=57.80%
+     [OUTPUT]: Epoch 33 | Loss=0.2894 | TestAcc=73.99%
+     [OUTPUT]: Epoch 34 | Loss=0.2080 | TestAcc=66.47%
+     [OUTPUT]: Epoch 35 | Loss=0.3108 | TestAcc=71.68%
+     [OUTPUT]: Epoch 36 | Loss=0.2313 | TestAcc=84.97%
+     [OUTPUT]: Epoch 37 | Loss=0.2247 | TestAcc=73.41%
+     [OUTPUT]: Epoch 38 | Loss=0.2195 | TestAcc=71.10%
+     [OUTPUT]: Epoch 39 | Loss=0.1668 | TestAcc=61.27%
+     [OUTPUT]: Epoch 40 | Loss=0.2565 | TestAcc=73.41%
+     [OUTPUT]: Epoch 41 | Loss=0.2462 | TestAcc=75.72%
+     [OUTPUT]: Epoch 42 | Loss=0.1715 | TestAcc=79.19%
+     [OUTPUT]: Epoch 43 | Loss=0.2235 | TestAcc=80.92%
+     [OUTPUT]: Epoch 44 | Loss=0.1223 | TestAcc=66.47%
+     [OUTPUT]: Epoch 45 | Loss=0.0829 | TestAcc=83.24%
+     [OUTPUT]: Epoch 46 | Loss=0.0353 | TestAcc=81.50%
+     [OUTPUT]: Epoch 47 | Loss=0.1123 | TestAcc=77.46%
+     [OUTPUT]: Epoch 48 | Loss=0.0718 | TestAcc=80.35%
+     [OUTPUT]: Epoch 49 | Loss=0.0606 | TestAcc=82.08%
+     [OUTPUT]: Epoch 50 | Loss=0.0897 | TestAcc=76.30%
+     [OUTPUT]: Epoch 51 | Loss=0.1925 | TestAcc=48.55%
+     [OUTPUT]: Epoch 52 | Loss=0.1993 | TestAcc=65.32%
+     [OUTPUT]: Epoch 53 | Loss=0.1789 | TestAcc=65.32%
+     [OUTPUT]: Epoch 54 | Loss=0.2405 | TestAcc=61.27%
+     [OUTPUT]: Epoch 55 | Loss=0.1494 | TestAcc=76.30%
+     [OUTPUT]: Epoch 56 | Loss=0.1094 | TestAcc=78.03%
+     [OUTPUT]: Epoch 57 | Loss=0.1677 | TestAcc=73.41%
+     [OUTPUT]: Epoch 58 | Loss=0.1102 | TestAcc=79.19%
+     [OUTPUT]: Epoch 59 | Loss=0.1215 | TestAcc=76.88%
+     [OUTPUT]: Epoch 60 | Loss=0.2056 | TestAcc=64.74%
+     [OUTPUT]: Epoch 61 | Loss=0.3563 | TestAcc=70.52%
+     [OUTPUT]: Epoch 62 | Loss=0.1275 | TestAcc=63.58%
+     [OUTPUT]: Epoch 63 | Loss=0.0993 | TestAcc=73.99%
+     [OUTPUT]: Epoch 64 | Loss=0.0744 | TestAcc=83.82%
+     [OUTPUT]: Epoch 65 | Loss=0.1072 | TestAcc=65.90%
+     [OUTPUT]: Epoch 66 | Loss=0.1081 | TestAcc=83.24%
+     [OUTPUT]: Epoch 67 | Loss=0.0879 | TestAcc=75.72%
+     [OUTPUT]: Epoch 68 | Loss=0.1945 | TestAcc=74.57%
+     [OUTPUT]: Epoch 69 | Loss=0.1706 | TestAcc=70.52%
+     [OUTPUT]: Epoch 70 | Loss=0.2731 | TestAcc=57.23%
+     [OUTPUT]: Epoch 71 | Loss=0.1758 | TestAcc=79.77%
+     [OUTPUT]: Epoch 72 | Loss=0.2293 | TestAcc=68.79%
+     [OUTPUT]: Epoch 73 | Loss=0.1796 | TestAcc=82.08%
+     [OUTPUT]: Epoch 74 | Loss=0.1032 | TestAcc=66.47%
+     [OUTPUT]: Epoch 75 | Loss=0.0656 | TestAcc=83.82%
+     [OUTPUT]: Epoch 76 | Loss=0.0285 | TestAcc=83.24%
+     [OUTPUT]: Epoch 77 | Loss=0.0164 | TestAcc=79.77%
+     [OUTPUT]: Epoch 78 | Loss=0.0101 | TestAcc=81.50%
+     [OUTPUT]: Epoch 79 | Loss=0.0213 | TestAcc=78.03%
+     [OUTPUT]: Epoch 80 | Loss=0.0505 | TestAcc=78.61%
+     [OUTPUT]: Epoch 81 | Loss=0.2199 | TestAcc=66.47%
+     [OUTPUT]: Epoch 82 | Loss=0.0986 | TestAcc=61.27%
+     [OUTPUT]: Epoch 83 | Loss=0.0373 | TestAcc=68.21%
+     [OUTPUT]: Epoch 84 | Loss=0.0659 | TestAcc=81.50%
+     [OUTPUT]: Epoch 85 | Loss=0.0543 | TestAcc=79.77%
+     [OUTPUT]: Epoch 86 | Loss=0.0259 | TestAcc=79.19%
+     [OUTPUT]: Epoch 87 | Loss=0.0472 | TestAcc=81.50%
+     [OUTPUT]: Epoch 88 | Loss=0.0144 | TestAcc=80.35%
+     [OUTPUT]: Epoch 89 | Loss=0.0075 | TestAcc=81.50%
+     [OUTPUT]: Epoch 90 | Loss=0.1208 | TestAcc=77.46%
+     [OUTPUT]: Epoch 91 | Loss=0.0639 | TestAcc=80.35%
+     [OUTPUT]: Epoch 92 | Loss=0.0216 | TestAcc=82.08%
+     [OUTPUT]: Epoch 93 | Loss=0.1787 | TestAcc=71.10%
+     [OUTPUT]: Epoch 94 | Loss=0.1041 | TestAcc=83.82%
+     [OUTPUT]: Epoch 95 | Loss=0.2319 | TestAcc=74.57%
+     [OUTPUT]: Epoch 96 | Loss=0.1468 | TestAcc=68.21%
+     [OUTPUT]: Epoch 97 | Loss=0.0796 | TestAcc=73.99%
+     [OUTPUT]: Epoch 98 | Loss=0.0653 | TestAcc=67.63%
+     [OUTPUT]: Epoch 99 | Loss=0.0486 | TestAcc=83.24%
+     [OUTPUT]: ✅ Training complete.
+Cell 12 [code]: # ================================================================
+     -> # Universal Multivariate Time Series Classifier
+     -> #  TCN → GCN → GoG → Classifier
+     -> #  Works on all UEA Multivariate datasets
+     [OUTPUT]:    Classes: 7
+     [OUTPUT]: Epoch 01 | Loss=1.8822 | TestAcc=24.28%
+     [OUTPUT]: Epoch 02 | Loss=1.4835 | TestAcc=20.23%
+     [OUTPUT]: Epoch 03 | Loss=1.3714 | TestAcc=24.28%
+     [OUTPUT]: Epoch 04 | Loss=1.3328 | TestAcc=23.70%
+     [OUTPUT]: Epoch 05 | Loss=1.2555 | TestAcc=41.62%
+     [OUTPUT]: Epoch 06 | Loss=1.1963 | TestAcc=27.17%
+     [OUTPUT]: Epoch 07 | Loss=1.0745 | TestAcc=30.06%
+     [OUTPUT]: Epoch 08 | Loss=0.9801 | TestAcc=52.02%
+     [OUTPUT]: Epoch 09 | Loss=0.9693 | TestAcc=47.98%
+     [OUTPUT]: Epoch 10 | Loss=1.0201 | TestAcc=46.24%
+     [OUTPUT]: Epoch 11 | Loss=1.0658 | TestAcc=39.88%
+     [OUTPUT]: Epoch 12 | Loss=0.9544 | TestAcc=58.38%
+     [OUTPUT]: Epoch 13 | Loss=0.8527 | TestAcc=50.87%
+     [OUTPUT]: Epoch 14 | Loss=0.7633 | TestAcc=43.93%
+     [OUTPUT]: Epoch 15 | Loss=0.7624 | TestAcc=53.76%
+     [OUTPUT]: Epoch 16 | Loss=0.7866 | TestAcc=49.71%
+     [OUTPUT]: Epoch 17 | Loss=0.8877 | TestAcc=43.35%
+     [OUTPUT]: Epoch 18 | Loss=0.7388 | TestAcc=67.63%
+     [OUTPUT]: Epoch 19 | Loss=0.7066 | TestAcc=46.82%
+     [OUTPUT]: Epoch 20 | Loss=0.8092 | TestAcc=54.34%
+     [OUTPUT]: Epoch 21 | Loss=0.6418 | TestAcc=62.43%
+     [OUTPUT]: Epoch 22 | Loss=0.5934 | TestAcc=56.65%
+     [OUTPUT]: Epoch 23 | Loss=0.5466 | TestAcc=67.63%
+     [OUTPUT]: Epoch 24 | Loss=0.6085 | TestAcc=52.60%
+     [OUTPUT]: Epoch 25 | Loss=0.8092 | TestAcc=35.26%
+     [OUTPUT]: Epoch 26 | Loss=0.6534 | TestAcc=65.32%
+     [OUTPUT]: Epoch 27 | Loss=0.6716 | TestAcc=63.58%
+     [OUTPUT]: Epoch 28 | Loss=0.5407 | TestAcc=48.55%
+     [OUTPUT]: Epoch 29 | Loss=0.6450 | TestAcc=60.69%
+     [OUTPUT]: Epoch 30 | Loss=0.6156 | TestAcc=57.80%
+     [OUTPUT]: Epoch 31 | Loss=0.5403 | TestAcc=41.04%
+     [OUTPUT]: Epoch 32 | Loss=0.5101 | TestAcc=52.60%
+     [OUTPUT]: Epoch 33 | Loss=0.6040 | TestAcc=41.04%
+     [OUTPUT]: Epoch 34 | Loss=0.5054 | TestAcc=67.05%
+     [OUTPUT]: Epoch 35 | Loss=0.5130 | TestAcc=40.46%
+     [OUTPUT]: Epoch 36 | Loss=0.4078 | TestAcc=68.79%
+     [OUTPUT]: Epoch 37 | Loss=0.3636 | TestAcc=65.32%
+     [OUTPUT]: Epoch 38 | Loss=0.5554 | TestAcc=68.79%
+     [OUTPUT]: Epoch 39 | Loss=0.4082 | TestAcc=70.52%
+     [OUTPUT]: Epoch 40 | Loss=0.4606 | TestAcc=48.55%
+     [OUTPUT]: Epoch 41 | Loss=0.3578 | TestAcc=56.65%
+     [OUTPUT]: Epoch 42 | Loss=0.4147 | TestAcc=68.21%
+     [OUTPUT]: Epoch 43 | Loss=0.3236 | TestAcc=67.63%
+     [OUTPUT]: Epoch 44 | Loss=0.3218 | TestAcc=63.58%
+     [OUTPUT]: Epoch 45 | Loss=0.4571 | TestAcc=60.69%
+     [OUTPUT]: Epoch 46 | Loss=0.3160 | TestAcc=64.74%
+     [OUTPUT]: Epoch 47 | Loss=0.2381 | TestAcc=33.53%
+     [OUTPUT]: Epoch 48 | Loss=0.2468 | TestAcc=59.54%
+     [OUTPUT]: Epoch 49 | Loss=0.5067 | TestAcc=32.37%
+     [OUTPUT]: Epoch 50 | Loss=0.4949 | TestAcc=68.79%
+     [OUTPUT]: Epoch 51 | Loss=0.3186 | TestAcc=49.71%
+     [OUTPUT]: Epoch 52 | Loss=0.3484 | TestAcc=44.51%
+     [OUTPUT]: Epoch 53 | Loss=0.2913 | TestAcc=59.54%
+     [OUTPUT]: Epoch 54 | Loss=0.3927 | TestAcc=54.34%
+     [OUTPUT]: Epoch 55 | Loss=0.3032 | TestAcc=67.63%
+     [OUTPUT]: Epoch 56 | Loss=0.2419 | TestAcc=58.38%
+     [OUTPUT]: Epoch 57 | Loss=0.3051 | TestAcc=69.36%
+     [OUTPUT]: Epoch 58 | Loss=0.2924 | TestAcc=61.85%
+     [OUTPUT]: Epoch 59 | Loss=0.2856 | TestAcc=67.63%
+     [OUTPUT]: Epoch 60 | Loss=0.3040 | TestAcc=63.58%
+     [OUTPUT]: Epoch 61 | Loss=0.2037 | TestAcc=74.57%
+     [OUTPUT]: Epoch 62 | Loss=0.1082 | TestAcc=76.30%
+     [OUTPUT]: Epoch 63 | Loss=0.1555 | TestAcc=76.30%
+     [OUTPUT]: Epoch 64 | Loss=0.1476 | TestAcc=78.03%
+     [OUTPUT]: Epoch 65 | Loss=0.1833 | TestAcc=75.72%
+     [OUTPUT]: Epoch 66 | Loss=0.2163 | TestAcc=70.52%
+     [OUTPUT]: Epoch 67 | Loss=0.1728 | TestAcc=72.83%
+     [OUTPUT]: Epoch 68 | Loss=0.1567 | TestAcc=65.32%
+     [OUTPUT]: Epoch 69 | Loss=0.1784 | TestAcc=50.87%
+     [OUTPUT]: Epoch 70 | Loss=0.1653 | TestAcc=81.50%
+     [OUTPUT]: Epoch 71 | Loss=0.1380 | TestAcc=50.29%
+     [OUTPUT]: Epoch 72 | Loss=0.4894 | TestAcc=50.87%
+     [OUTPUT]: Epoch 73 | Loss=0.1754 | TestAcc=65.90%
+     [OUTPUT]: Epoch 74 | Loss=0.0867 | TestAcc=64.16%
+     [OUTPUT]: Epoch 75 | Loss=0.0489 | TestAcc=77.46%
+     [OUTPUT]: Epoch 76 | Loss=0.0866 | TestAcc=56.07%
+     [OUTPUT]: Epoch 77 | Loss=0.1137 | TestAcc=59.54%
+     [OUTPUT]: Epoch 78 | Loss=0.1103 | TestAcc=75.72%
+     [OUTPUT]: Epoch 79 | Loss=0.3219 | TestAcc=67.63%
+     [OUTPUT]: Epoch 80 | Loss=0.2141 | TestAcc=73.41%
+     [OUTPUT]: Epoch 81 | Loss=0.0981 | TestAcc=61.27%
+     [OUTPUT]: Epoch 82 | Loss=0.0629 | TestAcc=69.94%
+     [OUTPUT]: Epoch 83 | Loss=0.0896 | TestAcc=60.69%
+     [OUTPUT]: Epoch 84 | Loss=0.1441 | TestAcc=78.03%
+     [OUTPUT]: Epoch 85 | Loss=0.0816 | TestAcc=72.83%
+     [OUTPUT]: Epoch 86 | Loss=0.0871 | TestAcc=72.83%
+     [OUTPUT]: Epoch 87 | Loss=0.0888 | TestAcc=75.14%
+     [OUTPUT]: Epoch 88 | Loss=0.1170 | TestAcc=60.12%
+     [OUTPUT]: Epoch 89 | Loss=0.1646 | TestAcc=79.19%
+     [OUTPUT]: Epoch 90 | Loss=0.0858 | TestAcc=72.83%
+     [OUTPUT]: Epoch 91 | Loss=0.0347 | TestAcc=69.36%
+     [OUTPUT]: Epoch 92 | Loss=0.0678 | TestAcc=75.72%
+     [OUTPUT]: Epoch 93 | Loss=0.1917 | TestAcc=63.58%
+     [OUTPUT]: Epoch 94 | Loss=0.1534 | TestAcc=75.72%
+     [OUTPUT]: Epoch 95 | Loss=0.1472 | TestAcc=68.21%
+     [OUTPUT]: Epoch 96 | Loss=0.0552 | TestAcc=78.61%
+     [OUTPUT]: Epoch 97 | Loss=0.0558 | TestAcc=73.41%
+     [OUTPUT]: Epoch 98 | Loss=0.0268 | TestAcc=78.61%
+     [OUTPUT]: Epoch 99 | Loss=0.0287 | TestAcc=75.72%
+     [OUTPUT]: ✅ Training complete.
+Cell 13 [code]: # ================================================================
+     -> # Universal Multivariate Time Series Classifier
+     -> #  TCN → GCN → GoG → Classifier
+     -> #  Works on all UEA Multivariate datasets (download by name)
+     [OUTPUT]: Running on: cuda
+     [OUTPUT]: Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]
+     [OUTPUT]: UWaveGestureLibrary_TRAIN.ts: 0.00B [00:00, ?B/s]
+     [OUTPUT]: UWaveGestureLibrary_TEST.ts: 0.00B [00:00, ?B/s]
+     [OUTPUT]:    Num classes: 8
+     [OUTPUT]: Epoch 01 | Loss=2.0772 | TestAcc=12.50%
+     [OUTPUT]: Epoch 02 | Loss=2.0535 | TestAcc=12.50%
+     [OUTPUT]: Epoch 03 | Loss=2.0232 | TestAcc=18.12%
+     [OUTPUT]: Epoch 04 | Loss=1.9788 | TestAcc=17.19%
+     [OUTPUT]: Epoch 05 | Loss=1.9221 | TestAcc=19.38%
+     [OUTPUT]: Epoch 06 | Loss=1.8439 | TestAcc=22.50%
+     [OUTPUT]: Epoch 07 | Loss=1.7620 | TestAcc=26.56%
+     [OUTPUT]: Epoch 08 | Loss=1.6675 | TestAcc=31.25%
+     [OUTPUT]: Epoch 09 | Loss=1.5771 | TestAcc=36.88%
+     [OUTPUT]: Epoch 10 | Loss=1.4930 | TestAcc=42.19%
+     [OUTPUT]: Epoch 11 | Loss=1.3902 | TestAcc=45.00%
+     [OUTPUT]: Epoch 12 | Loss=1.2728 | TestAcc=43.75%
+     [OUTPUT]: Epoch 13 | Loss=1.2394 | TestAcc=43.44%
+     [OUTPUT]: Epoch 14 | Loss=1.0739 | TestAcc=46.56%
+     [OUTPUT]: Epoch 15 | Loss=0.9633 | TestAcc=41.25%
+     [OUTPUT]: Epoch 16 | Loss=0.8725 | TestAcc=36.88%
+     [OUTPUT]: Epoch 17 | Loss=0.7703 | TestAcc=41.56%
+     [OUTPUT]: Epoch 18 | Loss=0.7025 | TestAcc=41.56%
+     [OUTPUT]: Epoch 19 | Loss=0.6500 | TestAcc=44.38%
+     [OUTPUT]: Epoch 20 | Loss=0.5660 | TestAcc=54.06%
+     [OUTPUT]: Epoch 21 | Loss=0.4991 | TestAcc=54.37%
+     [OUTPUT]: Epoch 22 | Loss=0.4404 | TestAcc=55.94%
+     [OUTPUT]: Epoch 23 | Loss=0.3580 | TestAcc=47.19%
+     [OUTPUT]: Epoch 24 | Loss=0.3373 | TestAcc=45.94%
+     [OUTPUT]: Epoch 25 | Loss=0.2601 | TestAcc=49.69%
+     [OUTPUT]: Epoch 26 | Loss=0.2476 | TestAcc=53.44%
+     [OUTPUT]: Epoch 27 | Loss=0.3008 | TestAcc=45.00%
+     [OUTPUT]: Epoch 28 | Loss=0.2391 | TestAcc=48.44%
+     [OUTPUT]: Epoch 29 | Loss=0.1845 | TestAcc=57.50%
+     [OUTPUT]: Epoch 30 | Loss=0.1759 | TestAcc=58.44%
+     [OUTPUT]: Epoch 31 | Loss=0.1217 | TestAcc=62.19%
+     [OUTPUT]: Epoch 32 | Loss=0.1267 | TestAcc=64.69%
+     [OUTPUT]: Epoch 33 | Loss=0.0937 | TestAcc=67.81%
+     [OUTPUT]: Epoch 34 | Loss=0.0932 | TestAcc=64.06%
+     [OUTPUT]: Epoch 35 | Loss=0.0609 | TestAcc=61.56%
+     [OUTPUT]: Epoch 36 | Loss=0.0688 | TestAcc=60.62%
+     [OUTPUT]: Epoch 37 | Loss=0.0434 | TestAcc=61.88%
+     [OUTPUT]: Epoch 38 | Loss=0.0479 | TestAcc=63.12%
+     [OUTPUT]: Epoch 39 | Loss=0.0262 | TestAcc=65.62%
+     [OUTPUT]: Epoch 40 | Loss=0.0286 | TestAcc=65.62%
+     [OUTPUT]: Epoch 41 | Loss=0.0176 | TestAcc=60.31%
+     [OUTPUT]: Epoch 42 | Loss=0.0325 | TestAcc=61.88%
+     [OUTPUT]: Epoch 43 | Loss=0.0536 | TestAcc=64.38%
+     [OUTPUT]: Epoch 44 | Loss=0.0531 | TestAcc=57.50%
+     [OUTPUT]: Epoch 45 | Loss=0.0469 | TestAcc=57.50%
+     [OUTPUT]: Epoch 46 | Loss=0.0295 | TestAcc=59.69%
+     [OUTPUT]: Epoch 47 | Loss=0.0286 | TestAcc=60.94%
+     [OUTPUT]: Epoch 48 | Loss=0.0234 | TestAcc=62.81%
+     [OUTPUT]: Epoch 49 | Loss=0.0376 | TestAcc=64.69%
+     [OUTPUT]: Epoch 50 | Loss=0.0220 | TestAcc=65.62%
+     [OUTPUT]: Epoch 51 | Loss=0.0249 | TestAcc=65.62%
+     [OUTPUT]: Epoch 52 | Loss=0.0170 | TestAcc=65.94%
+     [OUTPUT]: Epoch 53 | Loss=0.0308 | TestAcc=67.19%
+     [OUTPUT]: Epoch 54 | Loss=0.0189 | TestAcc=65.94%
+     [OUTPUT]: Epoch 55 | Loss=0.0374 | TestAcc=65.31%
+     [OUTPUT]: Epoch 56 | Loss=0.0403 | TestAcc=62.81%
+     [OUTPUT]: Epoch 57 | Loss=0.0298 | TestAcc=60.31%
+     [OUTPUT]: Epoch 58 | Loss=0.0333 | TestAcc=61.88%
+     [OUTPUT]: Epoch 59 | Loss=0.0440 | TestAcc=66.56%
+     [OUTPUT]: Epoch 60 | Loss=0.0401 | TestAcc=61.56%
+     [OUTPUT]: Epoch 61 | Loss=0.0413 | TestAcc=57.81%
+     [OUTPUT]: Epoch 62 | Loss=0.0400 | TestAcc=57.50%
+     [OUTPUT]: Epoch 63 | Loss=0.0174 | TestAcc=56.88%
+     [OUTPUT]: Epoch 64 | Loss=0.0354 | TestAcc=62.50%
+     [OUTPUT]: Epoch 65 | Loss=0.0175 | TestAcc=63.12%
+     [OUTPUT]: Epoch 66 | Loss=0.0328 | TestAcc=65.00%
+     [OUTPUT]: Epoch 67 | Loss=0.0134 | TestAcc=63.12%
+     [OUTPUT]: Epoch 68 | Loss=0.0228 | TestAcc=63.75%
+     [OUTPUT]: Epoch 69 | Loss=0.0231 | TestAcc=66.88%
+     [OUTPUT]: Epoch 70 | Loss=0.0167 | TestAcc=68.12%
+     [OUTPUT]: Epoch 71 | Loss=0.0131 | TestAcc=69.38%
+     [OUTPUT]: Epoch 72 | Loss=0.0081 | TestAcc=67.19%
+     [OUTPUT]: Epoch 73 | Loss=0.0044 | TestAcc=65.00%
+     [OUTPUT]: Epoch 74 | Loss=0.0039 | TestAcc=65.94%
+     [OUTPUT]: Epoch 75 | Loss=0.0068 | TestAcc=66.25%
+     [OUTPUT]: Epoch 76 | Loss=0.0053 | TestAcc=66.56%
+     [OUTPUT]: Epoch 77 | Loss=0.0051 | TestAcc=66.56%
+     [OUTPUT]: Epoch 78 | Loss=0.0026 | TestAcc=69.06%
+     [OUTPUT]: Epoch 79 | Loss=0.0021 | TestAcc=68.44%
+     [OUTPUT]: Epoch 80 | Loss=0.0023 | TestAcc=67.81%
+     [OUTPUT]: Epoch 81 | Loss=0.0015 | TestAcc=67.81%
+     [OUTPUT]: Epoch 82 | Loss=0.0014 | TestAcc=67.19%
+     [OUTPUT]: Epoch 83 | Loss=0.0059 | TestAcc=67.81%
+     [OUTPUT]: Epoch 84 | Loss=0.0021 | TestAcc=67.50%
+     [OUTPUT]: Epoch 85 | Loss=0.0023 | TestAcc=67.19%
+     [OUTPUT]: Epoch 86 | Loss=0.0032 | TestAcc=68.44%
+     [OUTPUT]: Epoch 87 | Loss=0.0015 | TestAcc=69.69%
+     [OUTPUT]: Epoch 88 | Loss=0.0011 | TestAcc=69.69%
+     [OUTPUT]: Epoch 89 | Loss=0.0017 | TestAcc=70.62%
+     [OUTPUT]: Epoch 90 | Loss=0.0011 | TestAcc=69.69%
+     [OUTPUT]: Epoch 91 | Loss=0.0014 | TestAcc=68.75%
+     [OUTPUT]: Epoch 92 | Loss=0.0006 | TestAcc=68.75%
+     [OUTPUT]: Epoch 93 | Loss=0.0014 | TestAcc=68.44%
+     [OUTPUT]: Epoch 94 | Loss=0.0020 | TestAcc=68.12%
+     [OUTPUT]: Epoch 95 | Loss=0.0012 | TestAcc=68.75%
+     [OUTPUT]: Epoch 96 | Loss=0.0009 | TestAcc=69.06%
+     [OUTPUT]: Epoch 97 | Loss=0.0006 | TestAcc=69.06%
+     [OUTPUT]: Epoch 98 | Loss=0.0005 | TestAcc=68.44%
+     [OUTPUT]: Epoch 99 | Loss=0.0006 | TestAcc=68.44%
+     [OUTPUT]: ✅ Training complete.
+Cell 14 [markdown]: **New Updated code**
+Cell 15 [code]: # ================================================================
+     -> # Universal Multivariate Time Series Classifier (IMPROVED)
+     -> # TCN → Sparse GCN → GoG → Classifier
+     -> # - Regularization everywhere
+     -> # - Sparse adjacency
+     [OUTPUT]: ✅ Training complete.
+
+============================================================
+FILE: Untitled5.ipynb.txt (Size: 615091 bytes)
+============================================================
+Total cells: 18
+Cell 00 [code]: # ============================================
+     -> # 1. Imports
+     -> import os
+     -> import numpy as np
+     [OUTPUT]: Loaded best model with Test Accuracy = 98.08%
+Cell 01 [code]: # ============================================
+     -> # 1. Imports
+     -> import os
+     -> import numpy as np
+Cell 02 [code]: # ============================================
+     -> # 1. Imports
+     -> import os
+     -> import numpy as np
+     [OUTPUT]: Loading PenDigits train/test from TS files...
+Cell 03 [markdown]: **GOOD** **CODE**
+Cell 04 [code]: # ============================================
+     -> # 1. Imports
+     -> import os
+     -> import numpy as np
+Cell 05 [markdown]: **FASTER VERSION OF ABOVE CODEa**
+Cell 06 [code]: # ============================================
+     -> # 1. Imports & Config
+     -> import os
+     -> import numpy as np
+     [OUTPUT]: Loading FaceDetection from UCR/UEA archive...
+     [OUTPUT]:   warnings.warn(
+     [OUTPUT]: Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]
+     [OUTPUT]: FaceDetection/FaceDetection_TEST.ts:   0%|          | 0.00/295M [00:00<?, ?B/s]
+     [OUTPUT]: FaceDetection/FaceDetection_TRAIN.ts:   0%|          | 0.00/494M [00:00<?, ?B/s]
+     [OUTPUT]: Seq len: 62 | Features: 144 | GOG segments: 4
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 001 | Train Loss=0.6928 Acc=50.83% | Test Loss=0.6939 Acc=50.00% | Best=50.00% | NoImp=0/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 002 | Train Loss=0.6892 Acc=53.96% | Test Loss=0.6837 Acc=56.38% | Best=56.38% | NoImp=0/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 003 | Train Loss=0.6758 Acc=58.17% | Test Loss=0.6813 Acc=56.04% | Best=56.38% | NoImp=1/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 004 | Train Loss=0.6581 Acc=61.21% | Test Loss=0.7079 Acc=56.24% | Best=56.38% | NoImp=2/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 005 | Train Loss=0.6415 Acc=64.11% | Test Loss=0.7771 Acc=56.04% | Best=56.38% | NoImp=3/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 006 | Train Loss=0.6195 Acc=66.45% | Test Loss=0.7294 Acc=54.85% | Best=56.38% | NoImp=4/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 007 | Train Loss=0.6001 Acc=67.96% | Test Loss=0.7464 Acc=56.67% | Best=56.67% | NoImp=0/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 008 | Train Loss=0.5714 Acc=70.81% | Test Loss=0.7681 Acc=57.15% | Best=57.15% | NoImp=0/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 009 | Train Loss=0.5513 Acc=72.14% | Test Loss=0.7838 Acc=57.66% | Best=57.66% | NoImp=0/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 010 | Train Loss=0.5296 Acc=74.55% | Test Loss=0.7565 Acc=58.51% | Best=58.51% | NoImp=0/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 011 | Train Loss=0.5301 Acc=73.94% | Test Loss=0.8173 Acc=57.43% | Best=58.51% | NoImp=1/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 012 | Train Loss=0.4939 Acc=77.27% | Test Loss=0.9060 Acc=57.60% | Best=58.51% | NoImp=2/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 013 | Train Loss=0.5062 Acc=75.69% | Test Loss=1.0300 Acc=57.09% | Best=58.51% | NoImp=3/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 014 | Train Loss=0.4422 Acc=79.92% | Test Loss=1.0042 Acc=57.18% | Best=58.51% | NoImp=4/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 015 | Train Loss=0.4210 Acc=80.83% | Test Loss=1.1158 Acc=57.07% | Best=58.51% | NoImp=5/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 016 | Train Loss=0.3957 Acc=82.72% | Test Loss=1.2013 Acc=55.39% | Best=58.51% | NoImp=6/15 LR
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 017 | Train Loss=0.3390 Acc=85.86% | Test Loss=1.1832 Acc=57.26% | Best=58.51% | NoImp=7/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 018 | Train Loss=0.3214 Acc=86.40% | Test Loss=1.2197 Acc=56.95% | Best=58.51% | NoImp=8/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 019 | Train Loss=0.3086 Acc=87.03% | Test Loss=1.2390 Acc=57.46% | Best=58.51% | NoImp=9/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 020 | Train Loss=0.3065 Acc=86.45% | Test Loss=1.4732 Acc=57.35% | Best=58.51% | NoImp=10/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 021 | Train Loss=0.2723 Acc=88.44% | Test Loss=1.5261 Acc=57.35% | Best=58.51% | NoImp=11/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 022 | Train Loss=0.2712 Acc=88.69% | Test Loss=1.5673 Acc=57.75% | Best=58.51% | NoImp=12/15 L
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 023 | Train Loss=0.2158 Acc=91.39% | Test Loss=1.7128 Acc=58.20% | Best=58.51% | NoImp=13/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 024 | Train Loss=0.2173 Acc=90.88% | Test Loss=1.9284 Acc=57.55% | Best=58.51% | NoImp=14/15
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Loaded best model with Test Accuracy = 58.51%
+Cell 07 [code]: !pip install -U sktime
+     [OUTPUT]: Successfully installed scikit-base-0.13.0 sktime-0.40.1
+Cell 08 [code]: # ============================================
+     -> # 1. Imports & Config
+     -> import numpy as np
+     -> import torch
+     [OUTPUT]: Loading StandWalkJump...
+     [OUTPUT]: Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]
+     [OUTPUT]: StandWalkJump_TEST.ts: 0.00B [00:00, ?B/s]
+     [OUTPUT]: StandWalkJump_TRAIN.ts: 0.00B [00:00, ?B/s]
+     [OUTPUT]: Seq len: 2500 | features: 4 | GOG segments: 8
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 003 | Train Loss=1.1079 Acc=33.33% | Test Loss=1.1032 Acc=33.33% | Best=33.33% | NoImp=2/50
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 005 | Train Loss=1.0646 Acc=50.00% | Test Loss=1.1061 Acc=26.67% | Best=33.33% | NoImp=4/50
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 006 | Train Loss=1.0588 Acc=58.33% | Test Loss=1.1078 Acc=26.67% | Best=33.33% | NoImp=5/50
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 008 | Train Loss=1.0855 Acc=16.67% | Test Loss=1.1115 Acc=26.67% | Best=33.33% | NoImp=7/50
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 011 | Train Loss=1.0368 Acc=41.67% | Test Loss=1.1221 Acc=46.67% | Best=46.67% | NoImp=0/50
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 014 | Train Loss=0.9080 Acc=66.67% | Test Loss=1.1436 Acc=20.00% | Best=46.67% | NoImp=3/50
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 017 | Train Loss=0.9161 Acc=58.33% | Test Loss=1.1753 Acc=20.00% | Best=46.67% | NoImp=6/50 LR
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 020 | Train Loss=0.8866 Acc=58.33% | Test Loss=1.1972 Acc=26.67% | Best=46.67% | NoImp=9/50
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 023 | Train Loss=0.7994 Acc=75.00% | Test Loss=1.2201 Acc=33.33% | Best=46.67% | NoImp=12/50 L
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 026 | Train Loss=0.7704 Acc=83.33% | Test Loss=1.2338 Acc=40.00% | Best=46.67% | NoImp=15/50
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 028 | Train Loss=0.7753 Acc=66.67% | Test Loss=1.2437 Acc=40.00% | Best=46.67% | NoImp=17/50
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 030 | Train Loss=0.7720 Acc=66.67% | Test Loss=1.2523 Acc=33.33% | Best=46.67% | NoImp=19/50
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 033 | Train Loss=0.6478 Acc=83.33% | Test Loss=1.2638 Acc=33.33% | Best=46.67% | NoImp=22/50
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 037 | Train Loss=0.7456 Acc=75.00% | Test Loss=1.2770 Acc=40.00% | Best=46.67% | NoImp=26/50
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 041 | Train Loss=0.7150 Acc=75.00% | Test Loss=1.2864 Acc=40.00% | Best=46.67% | NoImp=30/50 L
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 045 | Train Loss=0.6457 Acc=83.33% | Test Loss=1.2937 Acc=40.00% | Best=46.67% | NoImp=34/50
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 049 | Train Loss=0.7651 Acc=66.67% | Test Loss=1.2985 Acc=40.00% | Best=46.67% | NoImp=38/50
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 053 | Train Loss=0.6313 Acc=83.33% | Test Loss=1.3014 Acc=33.33% | Best=46.67% | NoImp=42/50 L
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Epoch 057 | Train Loss=0.7229 Acc=66.67% | Test Loss=1.3036 Acc=33.33% | Best=46.67% | NoImp=46/50
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+     [OUTPUT]: Loaded best model with Test Accuracy = 46.67%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp_enabled):
+Cell 09 [markdown]: **NEW CODE**
+Cell 10 [code]: # =========================================================
+     -> # 1) Imports + Config
+     -> import numpy as np, torch, torch.nn as nn, torch.nn.functional as F
+     -> from torch.utils.data import DataLoader
+     [OUTPUT]: Device = cuda
+     [OUTPUT]: Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]
+     [OUTPUT]: PhonemeSpectra/PhonemeSpectra_TRAIN.ts:   0%|          | 0.00/66.1M [00:00<?, ?B/s]
+     [OUTPUT]: PhonemeSpectra/PhonemeSpectra_TEST.ts:   0%|          | 0.00/66.8M [00:00<?, ?B/s]
+     [OUTPUT]: Params: 0.923559 M
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 001 | loss= 3.5918 | acc=  7.69% | best=  7.69%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 002 | loss= 3.3754 | acc=  9.48% | best=  9.48%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 003 | loss= 3.2471 | acc= 12.11% | best= 12.11%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 004 | loss= 3.1962 | acc= 11.39% | best= 12.11%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 005 | loss= 3.1354 | acc= 12.79% | best= 12.79%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 006 | loss= 3.0948 | acc= 15.69% | best= 15.69%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 007 | loss= 3.0582 | acc= 15.27% | best= 15.69%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 008 | loss= 3.0194 | acc= 17.66% | best= 17.66%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 009 | loss= 2.9863 | acc= 17.98% | best= 17.98%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 010 | loss= 2.9799 | acc= 16.64% | best= 17.98%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 011 | loss= 2.9494 | acc= 20.52% | best= 20.52%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 012 | loss= 2.9308 | acc= 20.22% | best= 20.52%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 013 | loss= 2.9144 | acc= 18.91% | best= 20.52%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 014 | loss= 2.9239 | acc= 22.04% | best= 22.04%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 015 | loss= 2.9003 | acc= 21.47% | best= 22.04%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 016 | loss= 2.8756 | acc= 22.73% | best= 22.73%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 017 | loss= 2.8452 | acc= 21.18% | best= 22.73%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 018 | loss= 2.8370 | acc= 23.29% | best= 23.29%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 019 | loss= 2.8263 | acc= 20.82% | best= 23.29%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 020 | loss= 2.8486 | acc= 22.19% | best= 23.29%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 021 | loss= 2.8247 | acc= 23.65% | best= 23.65%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 022 | loss= 2.8035 | acc= 19.50% | best= 23.65%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 023 | loss= 2.7780 | acc= 22.28% | best= 23.65%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 024 | loss= 2.7620 | acc= 24.58% | best= 24.58%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 025 | loss= 2.7659 | acc= 22.46% | best= 24.58%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 026 | loss= 2.7391 | acc= 25.41% | best= 25.41%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 027 | loss= 2.7355 | acc= 24.07% | best= 25.41%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 028 | loss= 2.7058 | acc= 24.66% | best= 25.41%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 029 | loss= 2.7160 | acc= 25.23% | best= 25.41%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 030 | loss= 2.6956 | acc= 25.11% | best= 25.41%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 031 | loss= 2.6886 | acc= 25.26% | best= 25.41%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 032 | loss= 2.6930 | acc= 25.53% | best= 25.53%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 033 | loss= 2.6579 | acc= 24.84% | best= 25.53%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 034 | loss= 2.6706 | acc= 26.42% | best= 26.42%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 035 | loss= 2.6447 | acc= 25.41% | best= 26.42%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 036 | loss= 2.6306 | acc= 24.28% | best= 26.42%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 037 | loss= 2.6327 | acc= 26.60% | best= 26.60%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 038 | loss= 2.6248 | acc= 27.89% | best= 27.89%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 039 | loss= 2.6028 | acc= 25.80% | best= 27.89%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 040 | loss= 2.5973 | acc= 27.20% | best= 27.89%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 041 | loss= 2.5871 | acc= 25.92% | best= 27.89%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 042 | loss= 2.5858 | acc= 26.54% | best= 27.89%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 043 | loss= 2.5764 | acc= 26.33% | best= 27.89%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 044 | loss= 2.5729 | acc= 25.95% | best= 27.89%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 045 | loss= 2.5676 | acc= 26.78% | best= 27.89%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 046 | loss= 2.5404 | acc= 25.92% | best= 27.89%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 047 | loss= 2.5611 | acc= 27.29% | best= 27.89%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 048 | loss= 2.5235 | acc= 28.66% | best= 28.66%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 049 | loss= 2.5272 | acc= 28.42% | best= 28.66%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 050 | loss= 2.5235 | acc= 27.89% | best= 28.66%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 051 | loss= 2.5189 | acc= 28.18% | best= 28.66%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 052 | loss= 2.5313 | acc= 27.44% | best= 28.66%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 053 | loss= 2.5206 | acc= 28.51% | best= 28.66%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 054 | loss= 2.5106 | acc= 28.69% | best= 28.69%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 055 | loss= 2.4997 | acc= 26.96% | best= 28.69%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 056 | loss= 2.4780 | acc= 27.92% | best= 28.69%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 057 | loss= 2.4888 | acc= 27.83% | best= 28.69%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 058 | loss= 2.4752 | acc= 27.38% | best= 28.69%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 059 | loss= 2.4816 | acc= 27.80% | best= 28.69%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 060 | loss= 2.4516 | acc= 28.03% | best= 28.69%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 061 | loss= 2.4612 | acc= 28.09% | best= 28.69%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 062 | loss= 2.4321 | acc= 29.94% | best= 29.94%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 063 | loss= 2.4376 | acc= 28.21% | best= 29.94%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 064 | loss= 2.4416 | acc= 28.60% | best= 29.94%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 065 | loss= 2.4285 | acc= 29.11% | best= 29.94%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 066 | loss= 2.4087 | acc= 31.02% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 067 | loss= 2.4344 | acc= 28.39% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 068 | loss= 2.4151 | acc= 29.47% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 069 | loss= 2.4199 | acc= 29.44% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 070 | loss= 2.4186 | acc= 29.53% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 071 | loss= 2.4037 | acc= 29.35% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 072 | loss= 2.4003 | acc= 27.95% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 073 | loss= 2.3772 | acc= 29.20% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 074 | loss= 2.3854 | acc= 28.90% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 075 | loss= 2.3877 | acc= 29.53% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 076 | loss= 2.3592 | acc= 28.69% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 077 | loss= 2.3620 | acc= 30.57% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 078 | loss= 2.3680 | acc= 29.47% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 079 | loss= 2.3464 | acc= 30.57% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 080 | loss= 2.3572 | acc= 29.53% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 081 | loss= 2.3402 | acc= 30.21% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 082 | loss= 2.3386 | acc= 29.91% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 083 | loss= 2.3503 | acc= 29.20% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 084 | loss= 2.3328 | acc= 30.15% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 085 | loss= 2.3322 | acc= 30.18% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 086 | loss= 2.3311 | acc= 29.32% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 087 | loss= 2.3288 | acc= 30.21% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 088 | loss= 2.3121 | acc= 30.33% | best= 31.02%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 089 | loss= 2.3095 | acc= 31.17% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 090 | loss= 2.3163 | acc= 30.18% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 091 | loss= 2.3033 | acc= 30.18% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 092 | loss= 2.3093 | acc= 29.70% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 093 | loss= 2.3029 | acc= 29.29% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 094 | loss= 2.2774 | acc= 30.12% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 095 | loss= 2.2882 | acc= 30.36% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 096 | loss= 2.3012 | acc= 29.23% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 097 | loss= 2.2933 | acc= 29.97% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 098 | loss= 2.2580 | acc= 29.62% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 099 | loss= 2.2666 | acc= 29.91% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 100 | loss= 2.2808 | acc= 28.36% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 101 | loss= 2.2546 | acc= 28.96% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 102 | loss= 2.2488 | acc= 29.32% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 103 | loss= 2.2493 | acc= 29.35% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 104 | loss= 2.2428 | acc= 29.41% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 105 | loss= 2.2369 | acc= 29.79% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 106 | loss= 2.2494 | acc= 29.94% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 107 | loss= 2.2525 | acc= 29.59% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 108 | loss= 2.2452 | acc= 29.65% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 109 | loss= 2.2318 | acc= 30.21% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 110 | loss= 2.2549 | acc= 29.56% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 111 | loss= 2.2392 | acc= 29.94% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 112 | loss= 2.2409 | acc= 30.45% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 113 | loss= 2.2314 | acc= 30.66% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 114 | loss= 2.2313 | acc= 30.90% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 115 | loss= 2.2188 | acc= 30.93% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 116 | loss= 2.2033 | acc= 30.24% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 117 | loss= 2.2001 | acc= 30.21% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 118 | loss= 2.2120 | acc= 30.15% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 119 | loss= 2.2101 | acc= 30.42% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 120 | loss= 2.2100 | acc= 29.79% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 121 | loss= 2.1982 | acc= 30.51% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 122 | loss= 2.2003 | acc= 30.66% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 123 | loss= 2.2125 | acc= 30.45% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 124 | loss= 2.2161 | acc= 30.24% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 125 | loss= 2.2027 | acc= 30.21% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 126 | loss= 2.1945 | acc= 30.45% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 127 | loss= 2.2007 | acc= 30.36% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 128 | loss= 2.1869 | acc= 29.79% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 129 | loss= 2.1999 | acc= 31.17% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+     [OUTPUT]: Epoch 130 | loss= 2.1924 | acc= 30.33% | best= 31.17%
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+Cell 11 [code]: # =========================================================
+     -> # 1) Imports + Config
+     -> import numpy as np
+     -> import torch
+     [OUTPUT]: Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]
+     [OUTPUT]: LSST_TEST.ts: 0.00B [00:00, ?B/s]
+     [OUTPUT]: LSST_TRAIN.ts: 0.00B [00:00, ?B/s]
+     [OUTPUT]: 🔥 BEST = 52.87915652879156 %
+Cell 12 [code]: # =========================================================
+     -> # FINAL TCN + GCN + GOG MODEL (AF-IMPROVED, SAFE)
+     -> import numpy as np
+     -> import torch
+     [OUTPUT]: Device: cuda
+     [OUTPUT]:   with torch.cuda.amp.autocast(enabled=amp):
+Cell 13 [code]: # =========================================================
+     -> # FINAL TCN + GCN + GOG MODEL
+     -> # ALL SAFE IMPROVEMENTS APPLIED
+     -> import numpy as np, torch, torch.nn as nn, torch.nn.functional as F
+Cell 14 [code]: import numpy as np
+     -> from sktime.transformations.panel.rocket import Rocket
+     -> from sklearn.linear_model import RidgeClassifierCV
+     -> from sktime.datasets import load_arrow_head
+     -> # 1. Load data (replace with your own time series data)
+Cell 15 [code]: # !pip install -q sktime torch torchvision torchaudio tqdm
+     -> import numpy as np
+     -> import torch
+     -> import torch.nn as nn
+     -> import torch.nn.functional as F
+Cell 16 [code]: # ===========================================================================
+     -> # Multi-GPU Time-Series Classifier (V2 - Adaptive Architecture)
+     -> # Upgrades: Attention Pooling, Adaptive TTA, Probabilistic MixUp, Adaptive Reg
+     -> # !pip install -q sktime torch torchvision torchaudio pandas
+     [OUTPUT]: ================================================================================
+     [OUTPUT]:   warnings.warn(
+     [OUTPUT]: ================================================================================
+     [OUTPUT]:   warnings.warn(
+     [OUTPUT]: UWaveGestureLibrary       92.50    90.94       5.6 Success
+Cell 17 [code]: # ===========================================================================
+     -> # Multi-GPU Time-Series Classifier (V2 - Adaptive Architecture)
+     -> # Upgrades: Attention Pooling, Adaptive TTA, Probabilistic MixUp, Adaptive Reg
+     -> import os, time, gc, traceback
+     [OUTPUT]: ================================================================================
+     [OUTPUT]:   warnings.warn(
+     [OUTPUT]: ================================================================================
+     [OUTPUT]:   warnings.warn(
+     [OUTPUT]: FaceDetection       67.82    65.72     109.5 Success
+
+============================================================
+FILE: Untitled6.ipynb.txt (Size: 9529 bytes)
+============================================================
+Total cells: 1
+Cell 00 [code]: # ================================================================
+     -> # FINAL ROCKET-BEATING UNIVERSAL MTSC MODEL
+     -> # TCN (multi-path) → GCN(time) → GCN(channel) → GoG → Classifier
+     -> import numpy as np

@@ -1,0 +1,15 @@
+# PEMS-SF Traffic Dataset Configuration
+dataset: "PEMS-SF"
+use_synthetic: false
+batch_size: 8
+epochs: 250
+lr: 0.001
+weight_decay: 0.0001
+mixup_alpha: 0.2
+tta_passes: 7
+tcn_hidden: 128
+gcn_hidden: 128
+gog_hidden: 128
+dropout: 0.42
+output_dir: "outputs/pemssf"
+checkpoint_dir: "checkpoints/pemssf"

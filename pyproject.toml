@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stgog"
+version = "1.0.0"
+description = "A Spatiotemporal Graph-of-Graphs Framework for Multivariate Time Series Classification"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    { name = "Tushar Sharma" },
+    { name = "Dr. Anjali" }
+]
+keywords = [
+    "deep-learning",
+    "multivariate-time-series",
+    "graph-neural-networks",
+    "temporal-convolutional-network",
+    "graph-of-graphs",
+    "time-series-classification"
+]
+dependencies = [
+    "torch>=2.0.0",
+    "numpy>=1.22.0",
+    "scipy>=1.8.0",
+    "scikit-learn>=1.0.0",
+    "pyyaml>=6.0",
+    "matplotlib>=3.5.0",
+    "tqdm>=4.64.0"
+]
+
+[project.optional-dependencies]
+benchmarks = ["sktime>=0.28.0"]
+dev = ["pytest>=7.0.0", "black>=23.0.0", "flake8>=5.0.0"]
+report = ["reportlab>=3.6.0", "pymupdf>=1.23.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
