@@ -62,12 +62,14 @@ Prior state-of-the-art models like **ROCKET** treat channels independently or vi
 │   ├── natops.yaml              # Optimized settings for NATOPS Aviation dataset
 │   ├── pemssf.yaml              # Optimized settings for PEMS-SF Traffic dataset
 │   └── synthetic.yaml           # Fast offline configuration for smoke testing
+├── notebooks/                  # Interactive onboarding & tutorial notebooks
+│   └── 01_getting_started.ipynb # End-to-end interactive tutorial
 ├── stgog/                       # Main Python Package
 │   ├── __init__.py              # Package API export
 │   ├── models/                  # Neural network modules
 │   │   ├── restcn.py            # Residual Dilated TCN + Squeeze-and-Excitation
-│   │   ├── graph_conv.py        # GraphConv, MultiScaleGCN, Chain Adjacency
-│   │   ├── gog.py               # Hierarchical Graph-of-Graphs & Attention Pooling
+│   │   ├── graph_conv.py        # GraphConv, MultiScaleGCN, Hybrid & Dynamic Adjacency
+│   │   ├── gog.py               # Hierarchical GoG, TAP & Multi-Head Attention Pooling
 │   │   ├── fusion.py            # 4-Pathway Softmax Fusion & Classification Head
 │   │   └── stgog_model.py       # Unified end-to-end STGoGModel
 │   ├── data/                    # Data ingestion & processing
@@ -77,18 +79,20 @@ Prior state-of-the-art models like **ROCKET** treat channels independently or vi
 │   │   ├── trainer.py           # Hardware-aware Trainer (CPU/CUDA, AMP, DDP support)
 │   │   ├── snapshot.py          # Snapshot Ensembling manager
 │   │   └── scheduler.py         # CosineAnnealingWarmRestarts & stochastic depth
-│   └── utils/                   # Metrics & visualization
+│   └── utils/                   # Metrics, diagnostics & explainability
 │       ├── config.py            # Config parser & default settings
 │       ├── metrics.py           # Accuracy, Macro-F1, Calibration ECE, Confusion Matrix
-│       └── visualization.py     # Plotting training curves & confusion matrices
+│       ├── visualization.py     # Plotting training curves & confusion matrices
+│       └── explainability.py    # STGoGExplainer: saliency heatmaps, sensor ranking, dashboards
 ├── scripts/                     # Executable command-line interfaces
 │   ├── train.py                 # Single-dataset training CLI
 │   ├── evaluate.py              # Checkpoint evaluation & inference CLI
 │   └── run_batch_benchmark.py   # Batch benchmarking across 22 UEA datasets
 ├── tests/                       # Automated unit and integration test suite
-│   ├── test_models.py           # Shape and forward pass verification
+│   ├── test_models.py           # Shape, hybrid graph, and forward pass verification
 │   ├── test_data.py             # Data loader, MixUp, and augmentations tests
-│   └── test_training.py         # End-to-end trainer smoke tests
+│   ├── test_training.py         # End-to-end trainer smoke tests
+│   └── test_explainability.py   # Saliency maps, channel rankings, and dashboard tests
 ├── pyproject.toml               # Modern build configuration (PEP 517/518)
 ├── setup.py                     # Setuptools packaging script
 ├── requirements.txt             # Runtime dependencies
@@ -127,7 +131,8 @@ Run the complete test suite:
 pytest tests -v
 ```
 
-All 13 unit tests should pass.
+All 17 unit tests should pass.
+
 
 ### 3. Fast Smoke Test (Synthetic Data)
 
@@ -159,7 +164,34 @@ Evaluate a saved model checkpoint with 7-pass Test-Time Augmentation (TTA):
 python scripts/evaluate.py --checkpoint checkpoints/synthetic/best_model.pt --config configs/synthetic.yaml --synthetic
 ```
 
+### 6. Model Explainability & Diagnostics
+
+Generate Grad*Input spatiotemporal saliency heatmaps, sensor rankings, and 4-panel diagnostic dashboards:
+
+```python
+from stgog import STGoGModel, STGoGExplainer
+import torch
+
+model = STGoGModel(in_channels=6, seq_len=60, num_classes=3)
+explainer = STGoGExplainer(model)
+
+x = torch.randn(1, 60, 6) # (1, T, C)
+fig = explainer.plot_explanation(x, save_path="outputs/explanation.png")
+summary = explainer.get_attribution_summary(x, top_k_channels=3)
+print("Top Channels:", summary["top_channels"])
+print("Learned Pathway Softmax Weights:", summary["pathway_weights"])
+```
+
+### 7. Interactive Tutorial Notebook
+
+Launch the complete end-to-end tutorial:
+
+```bash
+jupyter notebook notebooks/01_getting_started.ipynb
+```
+
 ---
+
 
 ## 📊 Benchmark Results (22 UEA Datasets)
 

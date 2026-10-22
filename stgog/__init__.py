@@ -11,6 +11,10 @@ from .models import (
     PathwayFusion,
     ClassificationHead,
     chain_adjacency,
+    DynamicCorrelationAdjacency,
+    HybridAdjacency,
+    TemporalAttentionPooling,
+    MultiHeadTemporalAttentionPooling,
 )
 from .data import (
     MTSDataset,
@@ -29,8 +33,10 @@ from .utils import (
     load_config,
     save_config,
     compute_classification_metrics,
+    compute_ece,
     plot_confusion_matrix,
     plot_training_curves,
+    STGoGExplainer,
 )
 
 __version__ = "1.0.0"
@@ -44,6 +50,10 @@ __all__ = [
     "PathwayFusion",
     "ClassificationHead",
     "chain_adjacency",
+    "DynamicCorrelationAdjacency",
+    "HybridAdjacency",
+    "TemporalAttentionPooling",
+    "MultiHeadTemporalAttentionPooling",
     "MTSDataset",
     "load_uea_dataset",
     "generate_synthetic_mts",
@@ -56,7 +66,10 @@ __all__ = [
     "load_config",
     "save_config",
     "compute_classification_metrics",
+    "compute_ece",
     "plot_confusion_matrix",
     "plot_training_curves",
+    "STGoGExplainer",
     "__version__",
 ]
+

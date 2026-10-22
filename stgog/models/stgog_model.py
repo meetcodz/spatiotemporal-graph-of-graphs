@@ -14,6 +14,7 @@ class STGoGModel(nn.Module):
     Integrates:
       1. ResTCN with Squeeze-and-Excitation channel attention (Temporal stream)
       2. Multi-Scale GCN with chain adjacency at radii r in {1, 3, 5} (Spatial stream)
+         (Optionally with dynamic hybrid attention-augmented adjacency)
       3. Dual Hierarchical Graph-of-Graphs (Inner/Outer GCNs on temporal segments)
       4. 4-Pathway learnable softmax fusion
       5. Two-block MLP classification head
@@ -32,6 +33,7 @@ class STGoGModel(nn.Module):
         gcn_radii: List[int] = [1, 3, 5],
         pooling: str = "mean",
         strided_downsample: Optional[int] = None,
+        use_hybrid_adj: bool = False,
     ):
         super().__init__()
         self.in_channels = in_channels
@@ -39,6 +41,7 @@ class STGoGModel(nn.Module):
         self.num_classes = num_classes
         self.num_segments = num_segments or compute_num_segments(seq_len)
         self.dropout = dropout
+        self.use_hybrid_adj = use_hybrid_adj
 
         # Optional pre-downsampling for ultra-long sequences (e.g. EigenWorms T=17,984)
         self.strided_downsample = strided_downsample
@@ -61,12 +64,13 @@ class STGoGModel(nn.Module):
             use_se=use_se,
         )
 
-        # 2. Spatial Stream: Multi-Scale GCN
+        # 2. Spatial Stream: Multi-Scale GCN (optionally hybrid)
         self.multi_gcn = MultiScaleGCN(
             in_features=in_channels,
             hidden_dim=gcn_hidden,
             radii=gcn_radii,
             num_layers_per_branch=3,
+            use_hybrid_adj=use_hybrid_adj,
         )
 
         # 3. Relational Modules: Hierarchical Graph-of-Graphs
@@ -108,6 +112,24 @@ class STGoGModel(nn.Module):
         self.gog_gcn.inner_gcn.stochastic_p = p
         self.gog_gcn.outer_gcn.stochastic_p = p
 
+    def get_pathway_weights(self) -> Dict[str, float]:
+        """Inspect learned softmax weights of the 4 feature pathways."""
+        w = self.fusion.get_normalized_weights().detach().cpu().numpy()
+        return {
+            "tcn_global_pool": float(w[0]),
+            "tcn_gog": float(w[1]),
+            "gcn_global_pool": float(w[2]),
+            "gcn_gog": float(w[3]),
+        }
+
+    def get_gcn_branch_weights(self) -> Dict[str, float]:
+        """Inspect learned softmax weights of the multi-scale GCN branches."""
+        w = self.multi_gcn.get_fusion_weights().detach().cpu().numpy()
+        return {
+            f"radius_{r}": float(w[idx])
+            for idx, r in enumerate(self.multi_gcn.radii)
+        }
+
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
         Forward pass.
@@ -116,7 +138,7 @@ class STGoGModel(nn.Module):
         Returns:
             Logits tensor of shape (B, num_classes)
         """
-        # Ensure input format (B, T, C)
+        # Pre-downsampling if active
         if self.pre_pool is not None:
             # (B, T, C) -> (B, C, T) -> pool -> (B, T', C)
             x = self.pre_pool(x.transpose(1, 2)).transpose(1, 2)
@@ -158,4 +180,5 @@ class STGoGModel(nn.Module):
             gcn_radii=cfg.get("gcn_radii", [1, 3, 5]),
             pooling=cfg.get("pooling", "mean"),
             strided_downsample=cfg.get("strided_downsample", None),
+            use_hybrid_adj=cfg.get("use_hybrid_adj", False),
         )

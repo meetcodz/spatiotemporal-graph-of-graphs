@@ -110,3 +110,62 @@ def test_stgog_strided_downsampling():
     x = torch.randn(2, 200, 4)
     logits = model(x)
     assert logits.shape == (2, 2)
+
+
+def test_hybrid_adjacency():
+    from stgog.models import DynamicCorrelationAdjacency, HybridAdjacency
+    x = torch.randn(2, 30, 8)
+    dyn = DynamicCorrelationAdjacency(in_features=8, proj_dim=16)
+    A_dyn = dyn(x)
+    assert A_dyn.shape == (2, 30, 30)
+
+    # Check symmetry and non-negativity under symmetric normalization D^(-1/2) A D^(-1/2)
+    assert torch.allclose(A_dyn, A_dyn.transpose(1, 2), atol=1e-5)
+    assert torch.all(A_dyn >= 0)
+    # Check self loops
+    assert torch.all(torch.diagonal(A_dyn, dim1=-2, dim2=-1) > 0)
+
+    hybrid = HybridAdjacency(in_features=8, initial_beta=0.2)
+    A_hyb = hybrid(x, radius=2)
+    assert A_hyb.shape == (2, 30, 30)
+    assert 0.0 <= hybrid.beta <= 1.0
+
+
+
+def test_multihead_temporal_attention_pooling():
+    from stgog.models import TemporalAttentionPooling, MultiHeadTemporalAttentionPooling
+    # Single-head TAP
+    tap = TemporalAttentionPooling(dim=32)
+    x = torch.randn(4, 15, 32)
+    out_tap = tap(x)
+    assert out_tap.shape == (4, 32)
+
+    # Multi-head TAP
+    mhap = MultiHeadTemporalAttentionPooling(dim=32, num_heads=4)
+    out_mhap = mhap(x)
+    assert out_mhap.shape == (4, 32)
+
+
+
+def test_stgog_inspection_and_hybrid():
+    model = STGoGModel(
+        in_channels=5,
+        seq_len=40,
+        num_classes=3,
+        tcn_hidden=16,
+        gcn_hidden=16,
+        gog_hidden=16,
+        use_hybrid_adj=True,
+    )
+    x = torch.randn(2, 40, 5)
+    logits = model(x)
+    assert logits.shape == (2, 3)
+
+    pw_weights = model.get_pathway_weights()
+    assert len(pw_weights) == 4
+    assert abs(sum(pw_weights.values()) - 1.0) < 1e-4
+
+    gcn_weights = model.get_gcn_branch_weights()
+    assert len(gcn_weights) == 3
+    assert abs(sum(gcn_weights.values()) - 1.0) < 1e-4
+
