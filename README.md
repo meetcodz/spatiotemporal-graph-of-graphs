@@ -110,8 +110,8 @@ Clone the repository and install it in editable mode:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/stgog.git
-cd stgog
+git clone https://github.com/meetcodz/spatiotemporal-graph-of-graphs.git
+cd spatiotemporal-graph-of-graphs
 
 # Install dependencies and the package
 pip install -e .
